@@ -19,7 +19,7 @@ export default function Home() {
               className="font-bold hover:underline"
               rel="noreferrer"
             >
-              Apstic
+              Neeraj
             </a>
           </p>
           <ThemeSwitcher />

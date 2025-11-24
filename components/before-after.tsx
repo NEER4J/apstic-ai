@@ -99,18 +99,18 @@ export function BeforeAfter() {
     return (
         <div className="w-full max-w-[1400px] mx-auto ">
             {/* Background Labels */}
-            <div className="flex w-full border">
-                <div className="text-2xl text-gray-900 border-r p-3 w-[50%] text-center">
+            <div className="flex w-full border dark:border-gray-700 bg-[#FDFBF7] dark:bg-[#201515]">
+                <div className="text-2xl text-gray-900 dark:text-gray-100 border-r dark:border-gray-700 p-3 w-[50%] text-center">
                     BEFORE
                 </div>
-                <div className="text-2xl text-gray-900 p-3 w-[50%] text-center">
+                <div className="text-2xl text-gray-900 dark:text-gray-100 p-3 w-[50%] text-center">
                     AFTER
                 </div>
             </div>
             <div
-                className="w-full h-[500px] bg-[#FDFBF7] relative overflow-hidden flex items-center justify-center border border-t-0"
+                className="w-full h-[500px] bg-[#FDFBF7] dark:bg-[#201515] relative overflow-hidden flex items-center justify-center border dark:border-gray-700 border-t-0"
                 style={{
-                    backgroundImage: 'radial-gradient(circle, #E5E7EB 1px, transparent 1px)',
+                    backgroundImage: 'radial-gradient(circle, #c0a59a2f 1px, transparent 1px)',
                     backgroundSize: '20px 20px'
                 }}
             >
@@ -145,10 +145,10 @@ export function BeforeAfter() {
                                 ease: "linear",
                                 delay: dot.delay,
                             }}
-                            className="absolute left-0 top-1/2 flex items-center gap-3 bg-white border p-2"
+                            className="absolute left-0 top-1/2 flex items-center gap-3 bg-white dark:bg-[#201515] border dark:border-gray-600 p-2 rounded"
                         >
-                            <div className="w-4 h-4 rounded-full bg-orange-400/80 shadow-sm backdrop-blur-sm" />
-                            <span className="text-sm text-orange-900/60 font-medium whitespace-nowrap bg-white/50 px-2 py-1 rounded-md">
+                            <div className="w-4 h-4 rounded-full bg-orange-400/80 dark:bg-orange-500 shadow-sm backdrop-blur-sm" />
+                            <span className="text-sm text-orange-900/60 dark:text-white font-medium whitespace-nowrap px-2 py-1 rounded-md">
                                 {dot.label}
                             </span>
                         </motion.div>
@@ -156,7 +156,7 @@ export function BeforeAfter() {
                 </div>
 
                 {/* Right Side - Order (Structured Boxes) */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[50%] h-full flex flex-col justify-center gap-0 bg-[#FDFBF7]">
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[50%] h-full flex flex-col justify-center gap-0 bg-[#FDFBF7] dark:bg-[#201515]">
                     {AFTER_LABELS.map((label, index) => (
                         <div
                             key={`box-${index}`}
@@ -182,11 +182,11 @@ export function BeforeAfter() {
                                 />
                             </svg>
 
-                            <div className={`border-b border-l border-r flex items-center gap-4 min-w-[320px] max-w-[350px] ${index === 0 ? "border-t" : ""}`}>
-                                <div className="h-14 w-14 bg-white border-r flex items-center justify-center text-orange-600 font-bold">
+                            <div className={`border-b border-l border-r dark:border-gray-700 flex items-center gap-4 min-w-[320px] max-w-[350px] bg-white dark:bg-[#201515] ${index === 0 ? "border-t" : ""}`}>
+                                <div className="h-14 w-14 bg-white dark:bg-[#201515] border-r dark:border-gray-600 flex items-center justify-center text-orange-600 dark:text-orange-400 font-bold">
                                     {index + 1}
                                 </div>
-                                <span className="text-gray-800 text-base">
+                                <span className="text-gray-800 dark:text-gray-200 text-base">
                                     {label}
                                 </span>
                             </div>

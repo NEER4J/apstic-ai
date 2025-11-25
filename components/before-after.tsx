@@ -99,7 +99,7 @@ export function BeforeAfter() {
     return (
         <div className="w-full max-w-[1440px] mx-auto ">
             {/* Background Labels */}
-            <div className="flex w-full border border-gray-300 dark:border-gray-700 bg-[#FDFBF7] dark:bg-[#201515]">
+            <div className="flex w-full border border-gray-300 dark:border-gray-700">
                 <div className="text-2xl text-gray-900 dark:text-gray-100 border-r border-gray-300 dark:border-gray-700 p-3 w-[50%] text-center">
                     BEFORE
                 </div>
@@ -108,7 +108,7 @@ export function BeforeAfter() {
                 </div>
             </div>
             <div
-                className="w-full h-[500px] bg-[#FDFBF7] dark:bg-[#201515] relative overflow-hidden flex items-center justify-center border-gray-300 border dark:border-gray-700 border-t-0"
+                className="w-full h-[500px] relative overflow-hidden flex items-center justify-center border-gray-300 border dark:border-gray-700 border-t-0"
                 style={{
                     backgroundImage: 'radial-gradient(circle, #c0a59a2f 1px, transparent 1px)',
                     backgroundSize: '20px 20px'
@@ -145,7 +145,7 @@ export function BeforeAfter() {
                                 ease: "linear",
                                 delay: dot.delay,
                             }}
-                            className="absolute left-0 top-1/2 flex items-center gap-3 bg-white dark:bg-[#201515] border-gray-300 border dark:border-gray-600 p-2 rounded"
+                            className="absolute left-0 top-1/2 flex items-center gap-3 border-gray-300 border dark:border-gray-600 p-2 rounded"
                         >
                             <div className="w-4 h-4 rounded-full bg-orange-400/80 dark:bg-orange-500 shadow-sm backdrop-blur-sm" />
                             <span className="text-sm text-orange-900/60 dark:text-white font-medium whitespace-nowrap px-2 py-1 rounded-md">
@@ -156,7 +156,7 @@ export function BeforeAfter() {
                 </div>
 
                 {/* Right Side - Order (Structured Boxes) */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[50%] h-full flex flex-col justify-center gap-0 bg-[#FDFBF7] dark:bg-[#201515]">
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[50%] h-full flex flex-col justify-center gap-0">
                     {AFTER_LABELS.map((label, index) => (
                         <div
                             key={`box-${index}`}

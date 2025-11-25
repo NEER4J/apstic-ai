@@ -59,7 +59,7 @@ function Cube({ type }: { type: string }) {
 
 export function Hero() {
   return (
-    <section className="w-full bg-white dark:bg-[#201515] border-b border-gray-300 dark:border-stone-700">
+    <section className="w-full border-b border-gray-300 dark:border-stone-700">
       <div className="max-w-[1440px] mx-auto border-x border-gray-300 dark:border-stone-700 flex flex-col lg:flex-row min-h-[600px]">
         
         {/* Left Content */}
@@ -88,7 +88,7 @@ export function Hero() {
         </div>
 
         {/* Right Content - Grid Animation */}
-        <div className="flex-1 bg-[#FDFBF7] dark:bg-[#1a1111] flex items-center justify-center p-8 lg:p-10 relative overflow-hidden">
+        <div className="flex-1 flex items-center justify-center p-8 lg:p-10 relative overflow-hidden">
              <div className="grid grid-cols-8 gap-2 lg:gap-5 relative z-10">
                 {GRID_CONFIG.map((item, i) => {
                     if (item.type.startsWith("text")) {

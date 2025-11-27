@@ -14,6 +14,8 @@ const CUBE_COLORS = {
   dotted: "dotted",
 };
 
+const COLOR_TYPES = ["orange", "blue", "yellow", "black", "white"];
+
 const GRID_CONFIG = [
   // Row 1
   { type: "orange" }, { type: "dotted" }, { type: "dotted" }, { type: "dotted" }, { type: "blue" }, { type: "dotted" }, { type: "dotted" }, { type: "dotted" },
@@ -31,7 +33,7 @@ const GRID_CONFIG = [
   { type: "blue" }, { type: "dotted" }, { type: "dotted" }, { type: "dotted" }, { type: "dotted" }, { type: "dotted" }, { type: "black" }, { type: "dotted" },
 ];
 
-function Cube({ type }: { type: string }) {
+function Cube({ type, currentColor }: { type: string; currentColor: string }) {
   if (type === "dotted") {
     return (
       <div className="w-12 h-12 relative opacity-100">
@@ -43,21 +45,68 @@ function Cube({ type }: { type: string }) {
     );
   }
 
-  const color = type === "orange" ? "#FF4A00" : type === "blue" ? "#3B82F6" : type === "yellow" ? "#F59E0B" : type === "black" ? "#161513" : "#FFFFFF";
-  const isDark = type === "black";
+  const color = currentColor === "orange" ? "#FF4A00" : currentColor === "blue" ? "#3B82F6" : currentColor === "yellow" ? "#F59E0B" : currentColor === "black" ? "#161513" : "#FFFFFF";
+  const isDark = currentColor === "black";
 
   return (
-    <div className="w-12 h-12 relative">
+    <motion.div
+      className="w-12 h-12 relative"
+      initial={{ scale: 1 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 0.3 }}
+    >
       <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 0L38 10V30L20 40L2 30V10L20 0Z" fill={color} className={isDark ? "dark:fill-white" : ""} />
+        <motion.path
+          d="M20 0L38 10V30L20 40L2 30V10L20 0Z"
+          fill={color}
+          className={isDark ? "dark:fill-white" : ""}
+          animate={{ fill: color }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        />
         <path d="M20 0V20L38 10M20 20L2 10M20 20V40" stroke="white" strokeWidth="1" strokeOpacity="0.5" />
       </svg>
-    </div>
+    </motion.div>
   );
 }
 
 
 export function Hero() {
+  // Initialize cube colors from GRID_CONFIG
+  const [cubeColors, setCubeColors] = useState<string[]>(
+    GRID_CONFIG.map(item => item.type)
+  );
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Find all indices of colored (non-dotted, non-text) cubes
+      const coloredIndices: number[] = [];
+      GRID_CONFIG.forEach((item, index) => {
+        if (item.type !== "dotted" && !item.type.startsWith("text")) {
+          coloredIndices.push(index);
+        }
+      });
+
+      // Pick a random colored cube from the grid
+      if (coloredIndices.length > 0) {
+        const randomIndex = coloredIndices[Math.floor(Math.random() * coloredIndices.length)];
+
+        // Get a random color different from the current one
+        const currentColor = cubeColors[randomIndex];
+        const availableColors = COLOR_TYPES.filter(c => c !== currentColor);
+        const randomColor = availableColors[Math.floor(Math.random() * availableColors.length)];
+
+        // Update only that cube's color
+        setCubeColors(prev => {
+          const newColors = [...prev];
+          newColors[randomIndex] = randomColor;
+          return newColors;
+        });
+      }
+    }, 800 + Math.random() * 700); // Random interval between 800-1500ms
+
+    return () => clearInterval(interval);
+  }, [cubeColors]);
+
   return (
     <section className="w-full border-b border-gray-300 dark:border-stone-700">
       <div className="max-w-[1440px] mx-auto border-x border-gray-300 dark:border-stone-700 flex flex-col lg:flex-row min-h-[600px]">
@@ -107,10 +156,11 @@ export function Hero() {
               }
               return (
                 <div key={i} className="flex items-center justify-center">
-                  <Cube type={item.type} />
+                  <Cube type={item.type} currentColor={cubeColors[i]} />
                 </div>
               )
             })}
+
           </div>
         </div>
 

@@ -97,103 +97,118 @@ export function BeforeAfter() {
     }, []);
 
     return (
-        <div className="w-full max-w-[1440px] mx-auto ">
-            {/* Background Labels */}
-            <div className="flex w-full border border-gray-300 dark:border-gray-700">
-                <div className="text-2xl text-gray-900 dark:text-gray-100 border-r border-gray-300 dark:border-gray-700 p-3 w-[50%] text-center">
-                    BEFORE
+        <section className="w-full border-b border-stone-700 bg-[#1f1515]">
+            <div className="w-full max-w-[1440px] mx-auto border-x border-stone-700">
+
+                {/* Header Section */}
+                <div className="py-10 px-6 lg:p-20 border-b border-stone-700">
+                    <h2 className="text-4xl lg:text-5xl font-medium text-white mb-6 tracking-tight">
+                        From Chaos to Order.<br />
+                        Powered by AI.
+                    </h2>
+                    <p className="text-lg text-stone-300 max-w-2xl leading-relaxed">
+                        See how intelligent automation transforms scattered workflows into streamlined,
+                        automated systems that just work.
+                    </p>
                 </div>
-                <div className="text-2xl text-gray-900 dark:text-gray-100 border-gray-300 p-3 w-[50%] text-center">
-                    AFTER
-                </div>
-            </div>
-            <div
-                className="w-full h-[500px] relative overflow-hidden flex items-center justify-center border-gray-300 border dark:border-gray-700 border-t-0"
-                style={{
-                    backgroundImage: 'radial-gradient(circle, #c0a59a2f 1px, transparent 1px)',
-                    backgroundSize: '20px 20px'
-                }}
-            >
-                {/* Center Logo */}
-                <div className="absolute z-20 flex items-center justify-center translate-x-1/5 w-44 h-44">
-                    <div className="relative w-full h-full">
-                        <Image
-                            src="/logo.svg"
-                            alt="Apstic Logo"
-                            fill
-                            className="object-contain p-4"
-                        />
+
+                {/* Background Labels */}
+                <div className="flex w-full">
+                    <div className="text-2xl text-stone-100 border-r border-stone-700 p-3 w-[50%] text-center">
+                        BEFORE
+                    </div>
+                    <div className="text-2xl text-stone-100 p-3 w-[50%] text-center">
+                        AFTER
                     </div>
                 </div>
-
-                {/* Left Side - Chaos */}
-                <div className="absolute inset-0 pointer-events-none">
-                    {dots.map((dot) => (
-                        <motion.div
-                            key={`dot-${dot.id}`}
-                            initial={{
-                                x: -100,
-                                y: dot.yStart,
-                            }}
-                            animate={{
-                                x: ["-10vw", "45vw"], // Move towards center
-                                y: [dot.yStart, 0], // Converge to center
-                            }}
-                            transition={{
-                                duration: dot.duration,
-                                repeat: Infinity,
-                                ease: "linear",
-                                delay: dot.delay,
-                            }}
-                            className="absolute left-0 top-1/2 flex items-center gap-3 border-gray-300 border dark:border-gray-600 p-2 rounded"
-                        >
-                            <div className="w-4 h-4 rounded-full bg-orange-400/80 dark:bg-orange-500 shadow-sm backdrop-blur-sm" />
-                            <span className="text-sm text-orange-900/60 dark:text-white font-medium whitespace-nowrap px-2 py-1 rounded-md">
-                                {dot.label}
-                            </span>
-                        </motion.div>
-                    ))}
-                </div>
-
-                {/* Right Side - Order (Structured Boxes) */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[50%] h-full flex flex-col justify-center gap-0">
-                    {AFTER_LABELS.map((label, index) => (
-                        <div
-                            key={`box-${index}`}
-                            className="flex items-center gap-0"
-                        >
-                            {/* Sharp Angled Line converging to center point */}
-                            <svg
-                                className="h-[50px] overflow-visible"
-                                viewBox="0 0 100 50"
-                                preserveAspectRatio="none"
-                                style={{
-                                    transform: `translateY(${LINE_POSITIONS[index]}px) rotate(${LINE_ROTATIONS[index]}deg)`,
-                                    transformOrigin: 'center',
-                                    width: `${LINE_WIDTHS[index]}px`
-                                }}
-                            >
-                                <path
-                                    d={`M 0,25 L 50,${LINE_ANGLES[index]} L 100,25`} // Use individual angle for all lines
-                                    stroke="#fdba74"
-                                    strokeWidth="2"
-                                    fill="none"
-                                    opacity="0.6"
-                                />
-                            </svg>
-
-                            <div className={`border-b border-l border-gray-300 border-r dark:border-gray-700 flex items-center gap-4 min-w-[320px] max-w-[350px] bg-white dark:bg-[#201515] ${index === 0 ? "border-t" : ""}`}>
-                                <div className="h-14 w-14 bg-white dark:bg-[#201515] border-gray-300 border-r dark:border-gray-600 flex items-center justify-center text-orange-600 dark:text-orange-400 font-bold">
-                                    {index + 1}
-                                </div>
-                                <span className="text-gray-800 dark:text-gray-200 text-base">
-                                    {label}
-                                </span>
-                            </div>
+                <div
+                    className="w-full h-[500px] relative overflow-hidden flex items-center justify-center border-stone-700 border-t"
+                    style={{
+                        backgroundImage: 'radial-gradient(circle, #c0a59a2f 1px, transparent 1px)',
+                        backgroundSize: '20px 20px'
+                    }}
+                >
+                    {/* Center Logo */}
+                    <div className="absolute z-20 flex items-center justify-center translate-x-1/5 w-44 h-44">
+                        <div className="relative w-full h-full">
+                            <Image
+                                src="/logo.svg"
+                                alt="Apstic Logo"
+                                fill
+                                className="object-contain p-4"
+                            />
                         </div>
-                    ))}
+                    </div>
+
+                    {/* Left Side - Chaos */}
+                    <div className="absolute inset-0 pointer-events-none">
+                        {dots.map((dot) => (
+                            <motion.div
+                                key={`dot-${dot.id}`}
+                                initial={{
+                                    x: -100,
+                                    y: dot.yStart,
+                                }}
+                                animate={{
+                                    x: ["-10vw", "45vw"], // Move towards center
+                                    y: [dot.yStart, 0], // Converge to center
+                                }}
+                                transition={{
+                                    duration: dot.duration,
+                                    repeat: Infinity,
+                                    ease: "linear",
+                                    delay: dot.delay,
+                                }}
+                                className="absolute left-0 top-1/2 flex items-center gap-3 border border-stone-600 p-2 rounded bg-[#1f1515]"
+                            >
+                                <div className="w-4 h-4 rounded-full bg-orange-500 shadow-sm backdrop-blur-sm" />
+                                <span className="text-sm text-white font-medium whitespace-nowrap px-2 py-1 rounded-md">
+                                    {dot.label}
+                                </span>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* Right Side - Order (Structured Boxes) */}
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[50%] h-full flex flex-col justify-center gap-0 bg-[#1f1515]">
+                        {AFTER_LABELS.map((label, index) => (
+                            <div
+                                key={`box-${index}`}
+                                className="flex items-center gap-0"
+                            >
+                                {/* Sharp Angled Line converging to center point */}
+                                <svg
+                                    className="h-[50px] overflow-visible"
+                                    viewBox="0 0 100 50"
+                                    preserveAspectRatio="none"
+                                    style={{
+                                        transform: `translateY(${LINE_POSITIONS[index]}px) rotate(${LINE_ROTATIONS[index]}deg)`,
+                                        transformOrigin: 'center',
+                                        width: `${LINE_WIDTHS[index]}px`
+                                    }}
+                                >
+                                    <path
+                                        d={`M 0,25 L 50,${LINE_ANGLES[index]} L 100,25`} // Use individual angle for all lines
+                                        stroke="#fdba74"
+                                        strokeWidth="2"
+                                        fill="none"
+                                        opacity="0.6"
+                                    />
+                                </svg>
+
+                                <div className={`border-b border-l border-r border-stone-700 flex items-center gap-4 min-w-[320px] max-w-[350px] bg-[#201515] ${index === 0 ? "border-t" : ""}`}>
+                                    <div className="h-14 w-14 bg-[#201515] border-r border-stone-600 flex items-center justify-center text-orange-400 font-bold">
+                                        {index + 1}
+                                    </div>
+                                    <span className="text-stone-200 text-base">
+                                        {label}
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

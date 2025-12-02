@@ -16,7 +16,7 @@ const CARDS = [
     {
         title: "Coaches & Consultants",
         description: "Auto-schedule calls, send reminders, and AI-generate call notes.",
-        img: "/local.svg",
+        img: "/coaches.svg",
     },
     {
         title: "Local Businesses",

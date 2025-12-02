@@ -1,10 +1,14 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, Suspense } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Swiper, SwiperSlide } from "swiper/react";
+import dynamic from "next/dynamic";
+
+// Dynamically import Swiper to avoid SSR issues
+const Swiper = dynamic(() => import("swiper/react").then(mod => ({ default: mod.Swiper })), { ssr: false });
+const SwiperSlide = dynamic(() => import("swiper/react").then(mod => ({ default: mod.SwiperSlide })), { ssr: false });
 import { Navigation, Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 

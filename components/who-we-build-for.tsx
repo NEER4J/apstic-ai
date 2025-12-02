@@ -48,23 +48,23 @@ export function WhoWeBuildFor() {
                 {/* Grid Section */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-gray-300 dark:bg-stone-700 gap-[1px]">
                     {CARDS.map((card, index) => (
-                        <div key={index} className="bg-[#fffefb] dark:bg-[#1f1515] p-8 lg:p-12 flex flex-col justify-between min-h-[300px] hover:bg-gray-50 dark:hover:bg-[#251a1a] transition-colors group relative overflow-hidden">
-                            <div className="relative z-10">
-                                <h3 className="text-2xl font-medium text-[#161513] dark:text-white mb-4">
+                        <div key={index} className="bg-[#fffefb] dark:bg-[#1f1515] flex flex-col justify-between md:min-h-[374px] min-h-[300px] relative overflow-hidden">
+                            <div className="relative z-10 p-8 lg:p-12">
+                                <h3 className="text-3xl md:text-4xl text-[#161513] dark:text-white mb-4">
                                     {card.title}
                                 </h3>
-                                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
+                                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                                     {card.description}
                                 </p>
                             </div>
 
                             {/* Icon/Illustration Area */}
-                            <div className="mt-auto relative w-24 h-24">
+                            <div className="mt-auto relative w-full h-full">
                                 <Image
                                     src={card.img}
                                     alt={card.title}
                                     fill
-                                    className="object-contain text-[#FF4A00] opacity-80 group-hover:scale-110 transition-transform duration-500"
+                                    className="object-contain text-[#FF4A00] opacity-80"
                                 />
                             </div>
                         </div>

@@ -93,7 +93,7 @@ export default function RootLayout({
 
             {/* Bottom Bar */}
             <div className="px-8 py-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs text-gray-500">
-              <p>© Copyright 2026. All Rights Reserved</p>
+              <p>© Copyright {new Date().getFullYear()}. All Rights Reserved</p>
               <div className="flex gap-6">
                 <a href="/privacy-policy" className="underline hover:text-[#161513] transition-colors">Privacy Policy</a>
                 <a href="/terms-and-conditions" className="underline hover:text-[#161513] transition-colors">Terms & Conditions</a>

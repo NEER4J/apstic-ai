@@ -1,31 +1,29 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || (process.env.VERCEL_URL
-        ? `https://${process.env.VERCEL_URL}`
-        : 'https://apstic.com');
+
 
     return [
         {
-            url: baseUrl,
+            url: 'https://apstic.com',
             lastModified: new Date(),
             changeFrequency: 'yearly',
             priority: 1,
         },
         {
-            url: `${baseUrl}/privacy-policy`,
+            url: 'https://apstic.com/privacy-policy',
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
-            url: `${baseUrl}/terms-and-conditions`,
+            url: 'https://apstic.com/terms-and-conditions',
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
-            url: `${baseUrl}/contact`,
+            url: 'https://apstic.com/contact',
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.8,

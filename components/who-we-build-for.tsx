@@ -1,8 +1,4 @@
 "use client";
-
-import React from "react";
-import { Users, Building2, MessageSquare, Store, ShoppingCart } from "lucide-react";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { HeroButton } from "@/components/hero-button";
 
@@ -10,27 +6,27 @@ const CARDS = [
     {
         title: "Agencies & Freelancers",
         description: "Automate lead tracking, proposals, and client reports.",
-        icon: Users,
+        img: "/agency.svg",
     },
     {
         title: "Real Estate Teams",
         description: "Capture leads → WhatsApp alerts → CRM sync → AI follow-up.",
-        icon: Building2,
+        img: "/real-estate.svg",
     },
     {
         title: "Coaches & Consultants",
         description: "Auto-schedule calls, send reminders, and AI-generate call notes.",
-        icon: MessageSquare,
+        img: "/local.svg",
     },
     {
         title: "Local Businesses",
         description: "AI chat systems for leads + automated Google review requests.",
-        icon: Store,
+        img: "/local.svg",
     },
     {
         title: "E-commerce Stores",
         description: "Auto order updates, AI-driven support, and smart inventory sync.",
-        icon: ShoppingCart,
+        img: "/e-commerce.svg",
     },
 ];
 
@@ -63,10 +59,12 @@ export function WhoWeBuildFor() {
                             </div>
 
                             {/* Icon/Illustration Area */}
-                            <div className="mt-auto">
-                                <card.icon
-                                    strokeWidth={1}
-                                    className="w-24 h-24 text-[#FF4A00] opacity-80 group-hover:scale-110 transition-transform duration-500"
+                            <div className="mt-auto relative w-24 h-24">
+                                <Image
+                                    src={card.img}
+                                    alt={card.title}
+                                    fill
+                                    className="object-contain text-[#FF4A00] opacity-80 group-hover:scale-110 transition-transform duration-500"
                                 />
                             </div>
                         </div>

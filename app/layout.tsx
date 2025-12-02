@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, DM_Mono, Instrument_Sans } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -44,6 +45,7 @@ export default function RootLayout({
       <body className={`${geistSans.className} ${dmMono.variable} ${instrumentSans.variable} antialiased sm:px-0 px-2`}>
         <Header />
         {children}
+        <Analytics />
         <footer className="w-full border-gray-300 bg-[#fffefb] border-t">
           <div className="max-w-[1440px] mx-auto border-x border-gray-300">
             {/* Footer Content */}

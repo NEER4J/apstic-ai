@@ -82,9 +82,17 @@ const LINE_POSITIONS = [
 const DOT_COUNT = 12; // Reduced for less frequency
 
 export function BeforeAfter() {
+    const [mounted, setMounted] = useState(false);
     const [dots, setDots] = useState<any[]>([]);
 
     useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        // Only initialize dots after component is mounted on client
+        if (!mounted) return;
+
         const newDots = Array.from({ length: DOT_COUNT }).map((_, i) => ({
             id: i,
             yStart: Math.random() * 600 - 300, // Spread vertically
@@ -94,7 +102,7 @@ export function BeforeAfter() {
             label: BEFORE_LABELS[i % BEFORE_LABELS.length],
         }));
         setDots(newDots);
-    }, []);
+    }, [mounted]);
 
     return (
         <section className="w-full border-b border-stone-700 bg-[#1f1515]">

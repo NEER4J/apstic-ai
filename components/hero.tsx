@@ -71,12 +71,23 @@ function Cube({ type, currentColor }: { type: string; currentColor: string }) {
 
 
 export function Hero() {
+  // Track if component is mounted to prevent SSR issues with Math.random()
+  const [mounted, setMounted] = useState(false);
+
   // Initialize cube colors from GRID_CONFIG
   const [cubeColors, setCubeColors] = useState<string[]>(
     GRID_CONFIG.map(item => item.type)
   );
 
+  // Set mounted state after hydration
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    // Only run color changes after component is mounted on client
+    if (!mounted) return;
+
     const interval = setInterval(() => {
       // Find all indices of colored (non-dotted, non-text) cubes
       const coloredIndices: number[] = [];
@@ -105,7 +116,7 @@ export function Hero() {
     }, 800 + Math.random() * 700); // Random interval between 800-1500ms
 
     return () => clearInterval(interval);
-  }, [cubeColors]);
+  }, [cubeColors, mounted]);
 
   return (
     <section className="w-full border-b border-gray-300 dark:border-stone-700">

@@ -53,19 +53,16 @@ export default function RootLayout({
               {/* Left: Logo */}
               <div>
                 <div className="flex items-center gap-2">
-                  <img src="/full-logo.svg" alt="" />
+                  <a href="/" className="underline text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-base transition-colors font-mono">
+                    <img src="/full-logo.svg" alt="" />
+                  </a>
                 </div>
               </div>
 
               {/* Center: Navigation Links */}
               <div className="flex justify-end">
-                <nav className="flex gap-8 text-sm text-gray-600 flex-wrap hidden">
-                  <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-base transition-colors font-mono">Case Study</a>
-                  <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-base transition-colors font-mono">Use Cases</a>
-                  <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-base transition-colors font-mono">Insights</a>
-                  <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-base transition-colors font-mono">Pricing</a>
-                  <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-base transition-colors font-mono">About</a>
-                  <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-base transition-colors font-mono">Contact</a>
+                <nav className="flex gap-8 text-sm text-gray-600 flex-wrap">
+                  <a href="/contact" className="underline text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-base transition-colors font-mono">Contact</a>
                 </nav>
               </div>
 
@@ -75,8 +72,8 @@ export default function RootLayout({
             {/* Right: Contact and Social */}
             <div className="flex justify-between gap-6 border-b border-gray-300 p-8 flex-wrap">
               <div className="flex gap-10 flex-wrap text-sm text-gray-600 items-center">
-                <a href="tel:+917470915225" className="hover:text-[#161513] transition-colors">+91 7470915225</a>
-                <a href="mailto:hello@apstic.com" className="hover:text-[#161513] transition-colors">hello@apstic.com</a>
+                <a href="tel:+917470915225" className="underline hover:text-[#161513] transition-colors">+91 7470915225</a>
+                <a href="mailto:hello@apstic.com" className="underline hover:text-[#161513] transition-colors">hello@apstic.com</a>
               </div>
               <div className="flex gap-5 hidden">
                 <a href="#" className="flex items-center justify-center text-gray-600 hover:text-[#FF4A00] transition-colors">
@@ -98,8 +95,8 @@ export default function RootLayout({
             <div className="px-8 py-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs text-gray-500">
               <p>© Copyright 2026. All Rights Reserved</p>
               <div className="flex gap-6">
-                <a href="/privacy-policy" className="hover:text-[#161513] transition-colors">Privacy Policy</a>
-                <a href="/terms-and-conditions" className="hover:text-[#161513] transition-colors">Terms & Conditions</a>
+                <a href="/privacy-policy" className="underline hover:text-[#161513] transition-colors">Privacy Policy</a>
+                <a href="/terms-and-conditions" className="underline hover:text-[#161513] transition-colors">Terms & Conditions</a>
               </div>
             </div>
           </div>

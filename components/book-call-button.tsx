@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { Play } from "lucide-react";
 import { ButtonHTMLAttributes } from "react";
 
-interface BookCallButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+interface BookCallButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> { }
 
 export function BookCallButton({ className, ...props }: BookCallButtonProps) {
   return (

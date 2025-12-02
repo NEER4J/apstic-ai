@@ -71,9 +71,9 @@ export function IntegrationsSection() {
                         }
 
                         return (
-                            <div key={i} className="bg-[#fffefb] dark:bg-[#1f1515] p-8 flex flex-col justify-between min-h-[150px] hover:bg-gray-50 dark:hover:bg-[#251a1a] transition-colors group">
+                            <div key={i} className="bg-[#fffefb] dark:bg-[#1f1515] p-8 flex flex-col justify-between min-h-[150px] hover:bg-gray-50 dark:hover:bg-[#251a1a] transition-colors group border-r border-gray-300 dark:border-stone-700">
                                 {/* Logo Placeholder */}
-                                <div className="w-10 h-10 flex items-center justify-center mb-4">
+                                <div className="flex items-start justify-start mb-4">
                                     {/* We would use real SVGs here. Using text/icon placeholder for now */}
                                     <div className="font-bold text-xl text-gray-400 group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400">
                                         {item.logo && item.logo[0]}

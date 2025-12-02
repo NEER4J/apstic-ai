@@ -4,6 +4,11 @@ import { IntegrationsSection } from "@/components/integrations-section";
 import { ImpactSection } from "@/components/impact-section";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { BeforeAfter } from "@/components/before-after";
+import { WhoWeBuildFor } from "@/components/who-we-build-for";
+import { StepsSection } from "@/components/steps-section";
+import { TestimonialsSection } from "@/components/testimonials-section";
+import { BenefitsSection } from "@/components/benefits-section";
+import { CustomSystemsSection } from "@/components/custom-systems-section";
 
 export default function Home() {
   return (
@@ -16,6 +21,11 @@ export default function Home() {
           <IntegrationsSection />
           <BeforeAfter />
           <ImpactSection />
+          <WhoWeBuildFor />
+          <StepsSection />
+          <TestimonialsSection />
+          <BenefitsSection />
+          <CustomSystemsSection />
         </div>
 
         <footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-2">

@@ -113,9 +113,8 @@ export function Hero() {
 
         {/* Left Content */}
         <div className="flex-1 py-10 px-6 lg:p-20 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-gray-300 dark:border-stone-700">
-          <h1 className="text-5xl lg:text-[64px] leading-[1.1] font-medium text-[#161513] dark:text-white mb-8 font-sans tracking-tight">
-            Automate Your<br />
-            Business with AI
+          <h1 className="text-4xl lg:text-[64px] leading-[1.1] font-medium text-[#161513] dark:text-white mb-8 font-sans tracking-tight">
+            We Automate the Tasks That Slow Your Business Down
           </h1>
 
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 lg:mb-12 max-w-xl leading-relaxed">
@@ -140,12 +139,16 @@ export function Hero() {
         <div className="flex-1 flex items-center justify-center p-8 lg:p-10 relative overflow-hidden">
           <div className="grid grid-cols-8 gap-2 lg:gap-5 relative z-10">
             {GRID_CONFIG.map((item, i) => {
+              // Show Row 1 (0-7), Row 4 (24-31), and Row 7 (48-55) on mobile
+              const isVisibleOnMobile = (i >= 0 && i <= 7) || (i >= 24 && i <= 31) || (i >= 48 && i <= 55);
+              const displayClass = isVisibleOnMobile ? "flex" : "hidden lg:flex";
+
               if (item.type.startsWith("text")) {
                 if (item.type === "text_start") {
                   return (
-                    <div key={i} className="col-span-6 relative flex items-center">
+                    <div key={i} className={`col-span-6 relative items-center ${displayClass}`}>
                       <div className="absolute inset-0 border border-[#FF4A00]/30 flex items-center justify-center px-0 text-center">
-                        <span className="font-mono text-sm text-[#161513] dark:text-white font-normal tracking-tight">
+                        <span className="font-mono text-sm text-[#161513] dark:text-white font-normal tracking-tight p-2">
                           Every System Connected. Every Process Automated.
                         </span>
                       </div>
@@ -155,7 +158,7 @@ export function Hero() {
                 if (item.type === "text_mid" || item.type === "text_end") return null;
               }
               return (
-                <div key={i} className="flex items-center justify-center">
+                <div key={i} className={`items-center justify-center ${displayClass}`}>
                   <Cube type={item.type} currentColor={cubeColors[i]} />
                 </div>
               )

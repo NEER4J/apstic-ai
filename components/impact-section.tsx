@@ -39,7 +39,7 @@ export function ImpactSection() {
                 {/* Stats Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-stone-700 border-b border-stone-700">
                     {STATS.map((stat, index) => (
-                        <div key={index} className="p-8 lg:p-12 flex flex-col justify-center min-h-[250px]">
+                        <div key={index} className="p-8 lg:p-12 flex flex-col justify-center ">
                             <div className="flex items-baseline gap-2 mb-4">
                                 <span className="text-6xl lg:text-7xl font-medium text-white tracking-tighter">
                                     {stat.percentage}

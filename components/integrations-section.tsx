@@ -31,7 +31,7 @@ export function IntegrationsSection() {
 
                 {/* Header Section */}
                 <div className="py-10 px-6 lg:p-20 border-b border-gray-300 dark:border-stone-700">
-                    <h2 className="text-4xl lg:text-5xl font-medium text-[#161513] dark:text-white mb-6 tracking-tight">
+                    <h2 className="text-3xl lg:text-5xl font-medium text-[#161513] dark:text-white mb-6 tracking-tight">
                         Connected to Everything<br />
                         You Already Use
                     </h2>
@@ -59,7 +59,7 @@ export function IntegrationsSection() {
 
                         if (item.type === "image") {
                             return (
-                                <div key={i} className="col-span-1 bg-[#fffefb] dark:bg-[#1f1515] relative min-h-[150px] overflow-hidden group">
+                                <div key={i} className="col-span-1 bg-[#fffefb] dark:bg-[#1f1515] relative  overflow-hidden group">
                                     <Image
                                         src={item.src || ""}
                                         alt={item.name}
@@ -71,7 +71,7 @@ export function IntegrationsSection() {
                         }
 
                         return (
-                            <div key={i} className="bg-[#fffefb] dark:bg-[#1f1515] p-8 flex flex-col justify-between min-h-[150px] hover:bg-gray-50 dark:hover:bg-[#251a1a] transition-colors group border-r border-gray-300 dark:border-stone-700">
+                            <div key={i} className="bg-[#fffefb] dark:bg-[#1f1515] p-6 md:p-8 flex flex-col justify-between  hover:bg-gray-50 dark:hover:bg-[#251a1a] transition-colors group border-r border-gray-300 dark:border-stone-700">
                                 {/* Logo Placeholder */}
                                 <div className="flex items-start justify-start mb-4">
                                     {/* We would use real SVGs here. Using text/icon placeholder for now */}

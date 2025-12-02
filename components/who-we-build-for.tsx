@@ -1,9 +1,10 @@
 "use client";
 
 import React from "react";
-import { Users, Building2, MessageSquare, Store, ShoppingCart, Play } from "lucide-react";
+import { Users, Building2, MessageSquare, Store, ShoppingCart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { HeroButton } from "@/components/hero-button";
 
 const CARDS = [
     {
@@ -40,7 +41,7 @@ export function WhoWeBuildFor() {
 
                 {/* Header Section */}
                 <div className="py-10 px-6 lg:p-20 border-b border-gray-300 dark:border-stone-700">
-                    <h2 className="text-4xl lg:text-5xl font-medium text-[#161513] dark:text-white mb-6 tracking-tight">
+                    <h2 className="text-3xl lg:text-5xl font-medium text-[#161513] dark:text-white mb-6 tracking-tight">
                         Who We Build For.
                     </h2>
                     <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
@@ -79,7 +80,7 @@ export function WhoWeBuildFor() {
                                 src="/forest-min.jpg"
                                 alt="Background"
                                 fill
-                                className="object-cover opacity-60 mix-blend-overlay"
+                                className="object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                         </div>
@@ -89,14 +90,9 @@ export function WhoWeBuildFor() {
                                 Book A Call To See How We Can Help You
                             </h3>
 
-                            <button className="group flex items-stretch overflow-hidden font-medium transition-transform active:scale-95 w-full max-w-xs">
-                                <span className="flex-1 flex items-center justify-center px-6 py-4 text-sm tracking-wider uppercase bg-white text-[#161513] group-hover:bg-gray-100 transition-colors">
-                                    Book Your Free Call
-                                </span>
-                                <div className="flex aspect-square items-center justify-center w-14 bg-[#FF4A00] text-white transition-colors group-hover:bg-[#ff5e1a]">
-                                    <Play className="h-5 w-5 fill-current" />
-                                </div>
-                            </button>
+                            <HeroButton variant="light" className="w-full max-w-xs">
+                                Book Your Free Call
+                            </HeroButton>
                         </div>
                     </div>
                 </div>

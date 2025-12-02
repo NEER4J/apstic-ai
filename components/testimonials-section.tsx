@@ -1,14 +1,10 @@
 "use client";
 
-import React, { useRef, Suspense } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
-import dynamic from "next/dynamic";
-
-// Dynamically import Swiper to avoid SSR issues
-const Swiper = dynamic(() => import("swiper/react").then(mod => ({ default: mod.Swiper })), { ssr: false });
-const SwiperSlide = dynamic(() => import("swiper/react").then(mod => ({ default: mod.SwiperSlide })), { ssr: false });
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 
@@ -68,7 +64,7 @@ export function TestimonialsSection() {
 
                 {/* Header Section */}
                 <div className="py-16 px-6 lg:px-20">
-                    <h2 className="text-4xl lg:text-5xl font-medium text-[#161513] dark:text-white mb-6 tracking-tight">
+                    <h2 className="text-3xl lg:text-5xl font-medium text-[#161513] dark:text-white mb-6 tracking-tight">
                         What Our Clients Say.
                     </h2>
                     <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
@@ -94,7 +90,7 @@ export function TestimonialsSection() {
                     >
                         {TESTIMONIALS.map((testimonial, index) => (
                             <SwiperSlide key={index}>
-                                <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+                                <div className="grid grid-cols-1 lg:grid-cols-2 min-h-auto md:min-h-[400px]">
 
                                     {/* Left Column: Content */}
                                     <div className="flex flex-col border-r border-gray-300 dark:border-stone-700 h-full">
@@ -115,7 +111,7 @@ export function TestimonialsSection() {
                                                 <path d="M24.6 9.64V19.25H14.99V9.14C14.99 4.26 18.83 0.26 23.65 0V2.22C20.05 2.48 17.21 5.48 17.21 9.14C17.21 9.42 17.43 9.64 17.71 9.64H24.6Z" fill="black" />
                                             </svg>
 
-                                            <blockquote className="mt-6 text-3xl lg:text-4xl font-thin text-[#161513] dark:text-white leading-tight mb-8">
+                                            <blockquote className="mt-6 text-2xl lg:text-4xl font-thin text-[#161513] dark:text-white leading-tight mb-8">
                                                 {testimonial.quote}
                                             </blockquote>
 
@@ -128,7 +124,7 @@ export function TestimonialsSection() {
                                         </div>
 
                                         {/* Stats Area */}
-                                        <div className="grid grid-cols-2 border-t border-gray-300 dark:border-stone-700 h-[200px]">
+                                        <div className="grid grid-cols-2 border-t border-gray-300 dark:border-stone-700 ">
                                             {testimonial.stats.map((stat, i) => (
                                                 <div key={i} className={cn(
                                                     "p-8 flex flex-col justify-center bg-[#fffefb] dark:bg-[#1f1515]",
@@ -146,8 +142,8 @@ export function TestimonialsSection() {
                                     </div>
 
                                     {/* Right Column: Image */}
-                                    <div className="relative h-[400px] lg:h-auto bg-gray-200 dark:bg-stone-800 overflow-hidden">
-                                        <div className="absolute inset-0 p-12 lg:p-20 flex items-center justify-center bg-[#dcded9] dark:bg-[#2a2a2a]">
+                                    <div className="relative h-[400px] lg:h-auto bg-gray-200 dark:bg-stone-800 overflow-hidden hidden md:block">
+                                        <div className="absolute inset-0 p-12 lg:p-20 flex items-center justify-center bg-[#dcded9] dark:bg-[#2a2a2a] ">
                                             <div className="relative w-full h-full shadow-2xl">
                                                 <Image
                                                     src={testimonial.image}

@@ -51,7 +51,7 @@ export function StepsSection() {
                 {/* Steps Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-stone-700 border-b border-stone-700">
                     {STEPS.map((step, index) => (
-                        <div key={index} className="p-8 lg:p-10 flex flex-col min-h-[320px] relative group hover:bg-[#1f1a1a] transition-colors">
+                        <div key={index} className="p-8 lg:p-10 flex flex-col md:min-h-[320px] min-h-auto relative group hover:bg-[#1f1a1a] transition-colors">
                             <div className="flex justify-between items-start mb-8">
                                 <span className="text-4xl font-medium text-white tracking-tight">
                                     {step.number}

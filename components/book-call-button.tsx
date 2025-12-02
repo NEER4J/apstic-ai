@@ -7,6 +7,9 @@ interface BookCallButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> { 
 export function BookCallButton({ className, ...props }: BookCallButtonProps) {
   return (
     <button
+      onClick={() => {
+        window.open("https://cal.com/neeraj-sharma/30min", "_blank");
+      }}
       className={cn(
         "group flex items-stretch overflow-hidden font-medium transition-transform active:scale-95 border-2 border-[#161513] dark:border-white",
         className

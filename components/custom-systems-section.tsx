@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { Play } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { HeroButton } from "@/components/hero-button";
 
 const TAGS_ROW_1 = [
     "Intelligence In Every Step",
@@ -99,20 +99,16 @@ export function CustomSystemsSection() {
                         Every business operates differently — and so should your automation. We build solutions custom to your goals, scale, and stack.
                     </p>
 
-                    <button className="flex items-stretch overflow-hidden font-medium transition-transform active:scale-95 w-full max-w-md border-2 border-[#FF4A00]">
-                        <span className="flex-1 flex items-center justify-center px-8 py-4 text-sm font-bold tracking-wider uppercase bg-[#FF4A00] text-white hover:bg-[#FF4A00]/90 transition-colors">
-                            LET'S BUILD YOUR AUTOMATION PLAN.
-                        </span>
-                        <div className="flex aspect-square items-center justify-center w-14 bg-white text-[#FF4A00]">
-                            <Play className="h-4 w-4 fill-current" />
-                        </div>
-                    </button>
+                    <HeroButton variant="full-orange" className="w-full max-w-md">
+                        LET'S BUILD YOUR AUTOMATION PLAN.
+                    </HeroButton>
+
                 </div>
 
                 {/* Right Column: Marquee Visualization */}
                 <div className="w-full lg:w-1/2 relative overflow-hidden bg-[#fffefb] dark:bg-[#fffefb] min-h-[400px] flex flex-col justify-center">
                     {/* Dot Pattern Background */}
-                    <div className="absolute inset-0 z-0 h-full w-full bg-[radial-gradient(#e5e7eb_1.5px,transparent_1.5px)] [background-size:20px_20px]"></div>
+                    <div className="absolute inset-0 z-0 h-full w-full bg-[radial-gradient(#C3C0B4_1.5px,transparent_1.5px)] [background-size:20px_20px]"></div>
 
                     <div className="relative z-10 flex flex-col gap-6">
                         <MarqueeRow items={TAGS_ROW_1} duration="240s" />

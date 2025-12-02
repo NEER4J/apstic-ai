@@ -2,26 +2,55 @@
 
 import React from "react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import {
+    Zap,
+    Github,
+    Slack,
+    Figma,
+    Trello,
+    Linkedin,
+    Twitter,
+    Youtube,
+    Chrome,
+    Codepen,
+    Gitlab,
+    Twitch,
+    Bot,
+    Database,
+    Cloud,
+    Mail,
+    MessageSquare,
+    ShoppingBag,
+    Layout
+} from "lucide-react";
 
 const INTEGRATIONS = [
     // Row 1
-    { name: "QuickBooks", logo: "QB", type: "logo" },
-    { name: "Xero", logo: "Xero", type: "logo" },
-    { name: "Zoho Office", logo: "Zoho", type: "logo" },
-    { name: "OpenAI", logo: "OpenAI", type: "logo" },
-    { name: "Zapier", logo: "Zapier", type: "logo" },
+    { name: "QuickBooks", icon: Zap, color: "text-orange-500" },
+    { name: "Xero", icon: Zap, color: "text-orange-500" },
+    { name: "Zoho Office", icon: Zap, color: "text-orange-500" },
+    { name: "OpenAI", icon: Bot, color: "text-green-500" },
+    { name: "Zapier", icon: Zap, color: "text-orange-600" },
+
     // Row 2
-    { name: "Forest Image", type: "image-wide", src: "/forest-min.jpg" }, // Placeholder for the wide image
-    { name: "Google Cloud", logo: "GCP", type: "logo" },
-    { name: "Power BI", logo: "PowerBI", type: "logo" },
-    { name: "Insomnia", logo: "Insomnia", type: "logo" },
+    { name: "Forest Image", type: "image-wide", src: "/forest-min.jpg" },
+    { name: "Google Cloud", icon: Cloud, color: "text-blue-500" },
+    { name: "Power BI", icon: Zap, color: "text-yellow-500" },
+    { name: "Insomnia", icon: Zap, color: "text-purple-500" },
+
     // Row 3
-    { name: "Gemma 2", logo: "Gemma", type: "logo" },
-    { name: "Moodle", logo: "Moodle", type: "logo" },
-    { name: "Excel", logo: "Excel", type: "logo" },
-    { name: "Swagger", logo: "Swagger", type: "logo" },
-    { name: "Water Image", type: "image", src: "/see-min.jpg" }, // Placeholder for the single image
+    { name: "Slack", icon: Slack, color: "text-emerald-500" },
+    { name: "GitHub", icon: Github, color: "text-black dark:text-white" },
+    { name: "Discord", icon: MessageSquare, color: "text-indigo-500" }, // Fallback for Discord
+    { name: "Jira", icon: Zap, color: "text-blue-600" },
+    { name: "Water Image", type: "image", src: "/see-min.jpg" },
+
+    // Row 4 (New Popular Tools)
+    { name: "Notion", icon: Zap, color: "text-black dark:text-white" },
+    { name: "Linear", icon: Zap, color: "text-indigo-400" },
+    { name: "HubSpot", icon: Zap, color: "text-orange-500" },
+    { name: "Salesforce", icon: Cloud, color: "text-blue-400" },
+    { name: "Shopify", icon: ShoppingBag, color: "text-green-600" },
 ];
 
 export function IntegrationsSection() {
@@ -42,7 +71,7 @@ export function IntegrationsSection() {
                 </div>
 
                 {/* Grid Section */}
-                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 bg-gray-300 dark:bg-stone-700 gap-[1px]">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 bg-gray-300 dark:bg-stone-700 gap-[1px]">
                     {INTEGRATIONS.map((item, i) => {
                         if (item.type === "image-wide") {
                             return (
@@ -59,7 +88,7 @@ export function IntegrationsSection() {
 
                         if (item.type === "image") {
                             return (
-                                <div key={i} className="col-span-1 bg-[#fffefb] dark:bg-[#1f1515] relative  overflow-hidden group">
+                                <div key={i} className="col-span-1 bg-[#fffefb] dark:bg-[#1f1515] relative min-h-[150px] overflow-hidden group">
                                     <Image
                                         src={item.src || ""}
                                         alt={item.name}
@@ -70,23 +99,25 @@ export function IntegrationsSection() {
                             )
                         }
 
+                        // Icon Item
+                        const IconComponent = item.icon || Zap;
+
                         return (
-                            <div key={i} className="bg-[#fffefb] dark:bg-[#1f1515] p-6 md:p-8 flex flex-col justify-between  hover:bg-gray-50 dark:hover:bg-[#251a1a] transition-colors group border-r border-gray-300 dark:border-stone-700">
-                                {/* Logo Placeholder */}
+                            <div key={i} className="bg-[#fffefb] dark:bg-[#1f1515] p-6 md:p-8 flex flex-col justify-between group">
+                                {/* Icon */}
                                 <div className="flex items-start justify-start mb-4">
-                                    {/* We would use real SVGs here. Using text/icon placeholder for now */}
-                                    <div className="font-bold text-xl text-gray-400 group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400">
-                                        {item.logo && item.logo[0]}
+                                    <div className={``}>
+                                        <IconComponent
+                                            className={`w-6 h-6 ${item.color || "text-orange-500"}`}
+                                            strokeWidth={1.5}
+                                        />
                                     </div>
                                 </div>
 
                                 <div className="flex flex-col gap-1">
-                                    <span className="text-lg text-[#161513] dark:text-white">
+                                    <span className="text-lg font-medium text-[#161513] dark:text-white">
                                         {item.name}
                                     </span>
-                                    {/* <span className="text-sm text-gray-500 dark:text-gray-400">
-                                        Integration
-                                    </span> */}
                                 </div>
                             </div>
                         );

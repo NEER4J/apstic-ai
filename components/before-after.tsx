@@ -129,8 +129,10 @@ export function BeforeAfter() {
                         AFTER
                     </div>
                 </div>
+
+                {/* Desktop layout */}
                 <div
-                    className="w-full h-[500px] relative overflow-hidden flex items-center justify-center border-stone-700 border-t"
+                    className="hidden lg:flex w-full h-[500px] relative overflow-hidden items-center justify-center border-stone-700 border-t"
                     style={{
                         backgroundImage: 'radial-gradient(circle, #c0a59a2f 1px, transparent 1px)',
                         backgroundSize: '20px 20px'
@@ -214,6 +216,77 @@ export function BeforeAfter() {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+
+                {/* Mobile layout */}
+                <div
+                    className="flex lg:hidden w-full h-[690px] relative overflow-hidden items-start justify-center border-stone-700 border-t"
+                    style={{
+                        backgroundImage: 'radial-gradient(circle, #c0a59a2f 1px, transparent 1px)',
+                        backgroundSize: '20px 20px'
+                    }}
+                >
+                    {/* Flowing tags - top to bottom */}
+                    <div className="absolute inset-0 pointer-events-none">
+                        {dots.map((dot) => (
+                            <motion.div
+                                key={`mobile-dot-${dot.id}`}
+                                initial={{
+                                    y: -200,
+                                }}
+                                animate={{
+                                    y: ["-10vh", "110vh"], // Flow from top to bottom
+                                }}
+                                transition={{
+                                    duration: dot.duration,
+                                    repeat: Infinity,
+                                    ease: "linear",
+                                    delay: dot.delay,
+                                }}
+                                style={{
+                                    left: `${20 + (dot.id % 60)}%`,
+                                    top: 0,
+                                }}
+                                className="absolute flex items-center gap-2 border border-stone-600 px-2 py-1 rounded bg-[#1f1515]"
+                            >
+                                <div className="w-3 h-3 rounded-full bg-orange-500 shadow-sm backdrop-blur-sm" />
+                                <span className="text-xs text-white font-medium whitespace-nowrap">
+                                    {dot.label}
+                                </span>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* Icon in the middle */}
+                    <div className="relative z-20 mt-[200px] flex flex-col items-center w-full">
+                        <div className="w-[250px] h-[250px] mb-[-150px] z-10">
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src="/logo.svg"
+                                    alt="Apstic Logo"
+                                    fill
+                                    className="object-contain p-0"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Points list - vertical */}
+                        <div className="w-full flex flex-col z-20">
+                            {AFTER_LABELS.map((label, index) => (
+                                <div
+                                    key={`mobile-box-${index}`}
+                                    className="flex items-center gap-3 border border-b-0 border-stone-700 bg-[#201515] px-3 py-3"
+                                >
+                                    <div className="h-10 w-10 bg-[#201515] border border-stone-600 flex items-center justify-center text-orange-400 font-bold text-sm rounded">
+                                        {index + 1}
+                                    </div>
+                                    <span className="text-stone-200 text-sm">
+                                        {label}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

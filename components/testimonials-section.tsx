@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
@@ -14,45 +14,48 @@ import "swiper/css/navigation";
 
 const TESTIMONIALS = [
     {
-        company: "Apstic",
-        quote: "Apstic contributes to an overhead savings of around $12,000+ on an annual basis",
-        author: "TYLER DIOGO, OPERATIONS MANAGER, ARDEN INSURANCE SERVICES.",
+        company: "TechNova",
+        quote: "Apstic's AI agents handled 80% of our support tickets in the first week. It's like having an extra team working 24/7.",
+        author: "ELENA RODRIGUEZ, CTO, TECHNOVA",
         stats: [
-            { value: "30,000+", label: "Work hour automated" },
-            { value: "$1000+", label: "Saved Every Month" },
+            { value: "80%", label: "Tickets Automated" },
+            { value: "24/7", label: "Support Coverage" },
         ],
-        image: "/see-min.jpg",
     },
     {
-        company: "TechFlow",
-        quote: "We reduced our lead response time from 2 hours to 2 minutes with Apstic's automation.",
-        author: "SARAH JENKINS, VP OF SALES, TECHFLOW INC.",
+        company: "GreenLeaf",
+        quote: "We automated our entire dispatch workflow. What used to take 4 hours of manual entry now happens instantly.",
+        author: "MARCUS CHEN, OPS DIRECTOR, GREENLEAF",
         stats: [
-            { value: "98%", label: "Faster Response Time" },
-            { value: "2x", label: "Increase in Conversions" },
+            { value: "4hrs", label: "Saved Daily" },
+            { value: "100%", label: "Data Accuracy" },
         ],
-        image: "/forest-min.jpg", // Placeholder
     },
     {
-        company: "BuildRight",
-        quote: "Project tracking system has completely transformed how we manage construction sites.",
-        author: "MICHAEL CHEN, DIRECTOR, BUILDRIGHT CONSTRUCTION.",
+        company: "Elevate",
+        quote: "The lead qualification bots are a game changer. Our sales team only talks to qualified prospects now.",
+        author: "SARAH JOHNSON, VP SALES, ELEVATE",
         stats: [
-            { value: "15hrs", label: "Saved Per Week" },
-            { value: "0", label: "Missed Deadlines" },
+            { value: "3x", label: "Conversion Rate" },
+            { value: "50%", label: "Less Churn" },
         ],
-        image: "/see-min.jpg", // Placeholder
     },
     {
-        company: "GrowthMinds",
-        quote: "Our coaching business scaled 3x without hiring a single new admin staff member.",
-        author: "EMMA WILSON, FOUNDER, GROWTHMINDS.",
+        company: "FinStream",
+        quote: "Complex financial reporting that took days is now generated in minutes with zero errors.",
+        author: "DAVID PARK, CFO, FINSTREAM",
         stats: [
-            { value: "3x", label: "Revenue Growth" },
-            { value: "$45k", label: "Saved in Salaries" },
+            { value: "99%", label: "Faster Reporting" },
+            { value: "0", label: "Manual Errors" },
         ],
-        image: "/forest-min.jpg", // Placeholder
     },
+];
+
+const PATTERNS = [
+    "radial-gradient(circle at 50% 50%, #FF4A00 0%, transparent 50%), radial-gradient(circle at 0% 0%, #161513 0%, transparent 50%), #fff",
+    "linear-gradient(45deg, #FF4A00 25%, transparent 25%, transparent 75%, #FF4A00 75%, #FF4A00), linear-gradient(45deg, #FF4A00 25%, transparent 25%, transparent 75%, #FF4A00 75%, #FF4A00)",
+    "repeating-linear-gradient(45deg, #161513 0, #161513 10px, transparent 10px, transparent 20px)",
+    "conic-gradient(from 0deg, #FF4A00, #161513, #FF4A00)",
 ];
 
 export function TestimonialsSection() {
@@ -107,8 +110,8 @@ export function TestimonialsSection() {
 
 
                                             <svg width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M9.61 9.64V19.25H0V9.14C0 4.26 3.84 0.26 8.65 0V2.22C5.06 2.48 2.22 5.48 2.22 9.14C2.22 9.42 2.44 9.64 2.72 9.64H9.61Z" fill="black" />
-                                                <path d="M24.6 9.64V19.25H14.99V9.14C14.99 4.26 18.83 0.26 23.65 0V2.22C20.05 2.48 17.21 5.48 17.21 9.14C17.21 9.42 17.43 9.64 17.71 9.64H24.6Z" fill="black" />
+                                                <path d="M9.61 9.64V19.25H0V9.14C0 4.26 3.84 0.26 8.65 0V2.22C5.06 2.48 2.22 5.48 2.22 9.14C2.22 9.42 2.44 9.64 2.72 9.64H9.61Z" fill="currentColor" className="text-black dark:text-white" />
+                                                <path d="M24.6 9.64V19.25H14.99V9.14C14.99 4.26 18.83 0.26 23.65 0V2.22C20.05 2.48 17.21 5.48 17.21 9.14C17.21 9.42 17.43 9.64 17.71 9.64H24.6Z" fill="currentColor" className="text-black dark:text-white" />
                                             </svg>
 
                                             <blockquote className="mt-6 text-2xl lg:text-4xl font-thin text-[#161513] dark:text-white leading-tight mb-8">
@@ -141,18 +144,16 @@ export function TestimonialsSection() {
                                         </div>
                                     </div>
 
-                                    {/* Right Column: Image */}
+                                    {/* Right Column: Pattern */}
                                     <div className="relative h-[400px] lg:h-auto bg-gray-200 dark:bg-stone-800 overflow-hidden hidden md:block">
-                                        <div className="absolute inset-0 p-12 lg:p-20 flex items-center justify-center bg-[#dcded9] dark:bg-[#2a2a2a] ">
-                                            <div className="relative w-full h-full shadow-2xl">
-                                                <Image
-                                                    src={testimonial.image}
-                                                    alt={testimonial.author}
-                                                    fill
-                                                    className="object-cover"
-                                                />
-                                            </div>
-                                        </div>
+                                        <div
+                                            className="absolute inset-0 w-full h-full opacity-80"
+                                            style={{
+                                                background: PATTERNS[index % PATTERNS.length],
+                                                backgroundSize: index % 2 === 0 ? '100% 100%' : '20px 20px'
+                                            }}
+                                        />
+                                        <div className="absolute inset-0 bg-black/5 dark:bg-black/20" />
                                     </div>
 
                                 </div>

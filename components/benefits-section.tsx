@@ -74,7 +74,7 @@ export function BenefitsSection() {
                 </div>
 
                 {/* Bottom Striped Area */}
-                <div className="h-24 w-full border-t border-stone-700 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,#2a2a2a_10px,#2a2a2a_11px)] opacity-30"></div>
+                <div className="h-24 w-full border-t border-stone-700 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,#44403c_10px,#44403c_11px)] opacity-70"></div>
             </div>
         </section>
     );

@@ -47,18 +47,31 @@ export async function updateSession(request: NextRequest) {
   const { data } = await supabase.auth.getClaims();
   const user = data?.claims;
 
-  if (
-    request.nextUrl.pathname !== "/" &&
-    !user &&
-    !request.nextUrl.pathname.startsWith("/login") &&
-    !request.nextUrl.pathname.startsWith("/auth") &&
-    !request.nextUrl.pathname.startsWith("/privacy-policy") &&
-    !request.nextUrl.pathname.startsWith("/terms-and-conditions") &&
-    !request.nextUrl.pathname.startsWith("/sitemap.xml") &&
-    !request.nextUrl.pathname.startsWith("/robots.txt") &&
-    !request.nextUrl.pathname.startsWith("/contact") &&
-    !request.nextUrl.pathname.startsWith("/api/contact")
-  ) {
+  const publicPaths = [
+    "/",
+    "/login",
+    "/auth",
+    "/blog",
+    "/privacy-policy",
+    "/terms-and-conditions",
+    "/sitemap.xml",
+    "/robots.txt",
+    "/contact",
+    "/api/contact",
+    "/insights",
+    "/case-study",
+    "/use-cases",
+    "/pricing",
+    "/about",
+  ];
+
+  const isPublic = publicPaths.some((p) =>
+    p.endsWith("/")
+      ? request.nextUrl.pathname.startsWith(p)
+      : request.nextUrl.pathname === p || request.nextUrl.pathname.startsWith(`${p}/`),
+  );
+
+  if (!user && !isPublic) {
     // no user, potentially respond by redirecting the user to the login page
     const url = request.nextUrl.clone();
     url.pathname = "/auth/login";

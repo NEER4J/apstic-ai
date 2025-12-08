@@ -65,4 +65,96 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .ProseMirror {
+    @apply min-h-[300px] rounded-md border border-input bg-transparent p-4 text-base leading-7 focus-visible:outline-none;
+  }
+
+  .ProseMirror p {
+    @apply mb-4;
+  }
+
+  .ProseMirror h2 {
+    @apply text-2xl font-semibold mt-6 mb-3;
+  }
+
+  .ProseMirror h3 {
+    @apply text-xl font-semibold mt-5 mb-3;
+  }
+
+  .ProseMirror ul {
+    @apply list-disc pl-6 mb-4 space-y-2;
+  }
+
+  .ProseMirror ol {
+    @apply list-decimal pl-6 mb-4 space-y-2;
+  }
+
+  .ProseMirror a {
+    @apply text-primary underline;
+  }
+
+  .ProseMirror blockquote {
+    @apply border-l-4 border-border pl-4 italic text-muted-foreground mb-4;
+  }
+
+  /* Lexical Editor Styles */
+  .ltr {
+    text-align: left;
+  }
+  .rtl {
+    text-align: right;
+  }
+
+  [data-lexical-editor] {
+    outline: none;
+  }
+
+  [data-lexical-editor] p {
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+
+  [data-lexical-editor] h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  [data-lexical-editor] h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem;
+  }
+
+  [data-lexical-editor] ul,
+  [data-lexical-editor] ol {
+    padding-left: 1.5rem;
+    margin: 0.5rem 0;
+  }
+
+  [data-lexical-editor] li {
+    margin: 0.25rem 0;
+  }
+
+  [data-lexical-editor] blockquote {
+    border-left: 4px solid #e5e7eb;
+    padding-left: 1rem;
+    font-style: italic;
+    color: #6b7280;
+    margin: 1rem 0;
+  }
+
+  [data-lexical-editor] a {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+
+  [data-lexical-editor] strong {
+    font-weight: 600;
+  }
+
+  [data-lexical-editor] em {
+    font-style: italic;
+  }
 }

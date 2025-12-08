@@ -62,6 +62,7 @@ export default function RootLayout({
               {/* Center: Navigation Links */}
               <div className="flex justify-end">
                 <nav className="flex gap-8 text-sm text-gray-600 flex-wrap">
+                  <a href="/blog" className="underline text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-base transition-colors font-mono">Blog</a>
                   <a href="/contact" className="underline text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-base transition-colors font-mono">Contact</a>
                 </nav>
               </div>

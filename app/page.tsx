@@ -9,6 +9,7 @@ import { TestimonialsSection } from "@/components/testimonials-section";
 import { BenefitsSection } from "@/components/benefits-section";
 import { CustomSystemsSection } from "@/components/custom-systems-section";
 import { FinalCTASection } from "@/components/final-cta-section";
+import { BlogsSection } from "@/components/blogs-section";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
           <TestimonialsSection />
           <BenefitsSection />
           <CustomSystemsSection />
+          <BlogsSection />
           <FinalCTASection />
         </div>
       </div>

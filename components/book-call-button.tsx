@@ -20,7 +20,7 @@ export function BookCallButton({ className, ...props }: BookCallButtonProps) {
         className={cn(
           "flex items-center px-6 py-2 text-sm transition-colors",
           "bg-[#161513] text-white group-hover:bg-[#161513]/90", // Light mode
-          "dark:bg-white dark:text-[#161513] dark:group-hover:bg-gray-200" // Dark mode
+          "dark:bg-white dark:text-[#161513] dark:group-hover:bg-gray-200 w-full justify-center" // Dark mode
         )}
       >
         Book A Call

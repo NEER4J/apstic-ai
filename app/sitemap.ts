@@ -11,13 +11,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 1,
         },
         {
-            url: 'https://apstic.com/privacy-policy',
+            url: 'https://apstic.com/blogs',
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
-            url: 'https://apstic.com/terms-and-conditions',
+            url: 'https://apstic.com/blogs/[slug]',
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.8,
+        },
+        {
+            url: 'https://apstic.com/careers',
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.8,
+        },
+        {
+            url: 'https://apstic.com/careers/[slug]',
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.8,
@@ -27,6 +39,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.8,
-        },
+        }
     ]
 }

@@ -76,7 +76,7 @@ export function BlogsSection() {
             </p>
           </div>
           <Link
-            href="/blog"
+            href="/blogs"
             className="text-base font-mono underline underline-offset-4 text-gray-700 dark:text-gray-200 hover:text-[#FF4A00] transition-colors"
           >
             View all insights →
@@ -118,7 +118,7 @@ export function BlogsSection() {
                 {blogs.map((blog) => (
                   <SwiperSlide key={blog.id}>
                     <Link
-                      href={`/blog/${blog.slug}`}
+                      href={`/blogs/${blog.slug}`}
                       className="group border-r border-gray-300 dark:border-stone-700 p-6 flex flex-col gap-4 hover:bg-[#fdf8f3] dark:hover:bg-[#241919] transition-colors h-full"
                     >
                       {/* Cover Image */}

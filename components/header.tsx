@@ -3,15 +3,12 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Mail, Phone, CircleDot } from "lucide-react";
 import { BookCallButton } from "@/components/book-call-button";
 
 const navItems = [
-  { name: "Case Study", href: "/case-study" },
-  { name: "Use Cases", href: "/use-cases" },
-  { name: "Insights", href: "/insights" },
-  { name: "Pricing", href: "/pricing" },
-  { name: "About", href: "/about" },
+  { name: "Blogs", href: "/blogs" },
+  { name: "Careers", href: "/careers" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -43,7 +40,7 @@ export function Header() {
           <div className="flex items-center gap-5">
 
             {/* Desktop Navigation */}
-            <nav className="hidden  gap-4 items-center">
+            <nav className="hidden md:flex gap-4 items-center">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -56,18 +53,18 @@ export function Header() {
             </nav>
 
             {/* Desktop Button */}
-            <div className="flex items-center">
+            <div className="hidden md:flex items-center">
               <BookCallButton />
             </div>
 
           </div>
 
           {/* Mobile menu button */}
-          <div className="hidden items-center">
+          <div className="flex md:hidden items-center">
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#FF4A00]"
-              aria-expanded="false"
+              aria-expanded={isMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
               {isMenuOpen ? (
@@ -80,26 +77,69 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-[#201515] border-t border-gray-100 dark:border-stone-700">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
+      {/* Mobile Drawer */}
+      <div
+        className={`md:hidden fixed inset-0 z-40 transition-opacity duration-300 ${
+          isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div
+          className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+          onClick={() => setIsMenuOpen(false)}
+        />
+
+        <div
+          className={`absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-white dark:bg-[#201515] border-l border-gray-200 dark:border-stone-700 shadow-xl transform transition-transform duration-300 ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="flex items-center justify-between px-5 h-16 border-b border-gray-100 dark:border-stone-700">
+            <span className="text-2xl font-medium text-gray-900 dark:text-gray-100 pl-2">Apstic</span>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="p-2 text-gray-500 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
+              aria-label="Close menu"
+            >
+              <X className="h-5 w-5" />
+            </button>
           </div>
-          <div className="pt-4 pb-6 px-5">
-            <BookCallButton className="w-full justify-center" />
+
+          <div className="flex flex-col h-[calc(100%-4rem)]">
+            <div className="flex-1 overflow-y-auto px-5 py-6 space-y-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="flex items-center gap-3 px-3 py-3 rounded-lg text-lg font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                <CircleDot className="h-4 w-4" /> <span className="underline">{item.name}</span>
+                </Link>
+              ))}
+            </div>
+
+            <div className="px-5 pb-8 space-y-4 border-t border-gray-100 dark:border-stone-700 pt-4">
+              <div className="space-y-3">
+                <a
+                  href="mailto:hello@apstic.com"
+                  className="flex items-center gap-3 text-base text-gray-800 dark:text-gray-200 hover:text-[#FF4A00] dark:hover:text-[#FF4A00] transition-colors"
+                >
+                  <Mail className="h-5 w-5" />
+                  hello@apstic.com
+                </a>
+                <a
+                  href="tel:+917470915225"
+                  className="flex items-center gap-3 text-base text-gray-800 dark:text-gray-200 hover:text-[#FF4A00] dark:hover:text-[#FF4A00] transition-colors"
+                >
+                  <Phone className="h-5 w-5" />
+                  +91 7470915225
+                </a>
+              </div>
+              <BookCallButton className="w-full justify-center" />
+            </div>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }

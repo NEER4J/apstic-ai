@@ -1,10 +1,10 @@
-import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { formatDate } from "@/lib/utils";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Calendar, User, Tag } from "lucide-react";
+import Link from "next/link";
 
+import { ArrowLeft, Calendar, User, Tag, ChevronDown } from "lucide-react";
 type BlogRecord = {
   id: string;
   title: string;
@@ -29,7 +29,8 @@ export const revalidate = 60;
 async function getBlog(slug: string): Promise<BlogRecord | null> {
   const supabase = await createClient();
 
-  const { data } = await supabase
+  // First, try published content
+  const { data, error } = await supabase
     .from("blogs")
     .select("*")
     .eq("slug", slug)
@@ -37,6 +38,20 @@ async function getBlog(slug: string): Promise<BlogRecord | null> {
     .maybeSingle();
 
   if (data) return data as BlogRecord;
+
+  // If not published, allow authenticated users to view drafts (useful for preview)
+  const { data: draft, error: draftError } = await supabase
+    .from("blogs")
+    .select("*")
+    .eq("slug", slug)
+    .maybeSingle();
+
+  if (draft) return draft as BlogRecord;
+
+  if (error || draftError) {
+    console.error("Blog fetch error", error || draftError);
+  }
+
   return null;
 }
 
@@ -137,19 +152,20 @@ export default async function BlogDetailPage({
     <main className="min-h-screen bg-white">
       {/* Breadcrumb and Back Navigation */}
       <div className="border-b border-gray-200">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-12 py-4">
+        <div className="max-w-5xl mx-auto px-6 lg:px-10 py-4">
           <Link
             href="/blogs"
             className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-[#FF4A00] transition-colors font-mono"
           >
-            <ArrowLeft className="h-4 w-4" /> Back to all insights
+            <ArrowLeft className="h-4 w-4" />
+            Back to all insights
           </Link>
         </div>
       </div>
 
       {/* Hero Section */}
       <section className="border-b border-gray-200">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-12 py-12 lg:py-16">
+        <div className="max-w-5xl mx-auto px-6 lg:px-10 py-12 lg:py-16 border-x border-gray-200">
           {/* Tags */}
           {keywords.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-6">
@@ -196,19 +212,19 @@ export default async function BlogDetailPage({
       {/* Cover Image */}
       {blog.cover_image_url && (
         <section className="border-b border-gray-200">
-          <div className="max-w-[1440px] mx-auto">
+          <div className="max-w-5xl mx-auto border-x border-gray-200">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={blog.cover_image_url}
               alt={blog.title}
-              className="w-full h-[400px] lg:h-[560px] object-cover"
+              className="w-full h-[300px] lg:h-[360px] object-cover"
             />
           </div>
         </section>
       )}
 
       {/* Content */}
-      <div className="max-w-4xl mx-auto px-6 lg:px-10 py-12 lg:py-16">
+      <div className="max-w-5xl mx-auto px-6 lg:px-10 py-12 lg:py-16 border-x border-gray-200 !pt-3">
         <article
           className="prose prose-lg max-w-none leading-relaxed
             [&_h2]:text-3xl [&_h2]:font-semibold [&_h2]:tracking-tight [&_h2]:text-[#161513] [&_h2]:mt-12 [&_h2]:mb-4
@@ -238,19 +254,22 @@ export default async function BlogDetailPage({
                 Frequently Asked Questions
               </h2>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-4">
               {faq.map((item, idx) => (
-                <div
+                <details
                   key={idx}
-                  className="border border-gray-200 bg-gray-50 p-6 lg:p-8"
+                  className="group border border-gray-200 bg-[fffefb]"
                 >
-                  <h3 className="text-xl font-semibold text-[#161513] mb-3">
-                    {item.question}
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
+                  <summary className="flex items-center justify-between gap-4 cursor-pointer px-6 lg:px-8 py-5 list-none">
+                    <span className="text-lg font-semibold text-[#161513]">
+                      {item.question}
+                    </span>
+                    <ChevronDown className="h-5 w-5 text-gray-500 transition-transform duration-200 group-open:rotate-180" />
+                  </summary>
+                  <div className="px-6 lg:px-8 pb-5 pt-0 text-gray-700 leading-relaxed">
                     {item.answer}
-                  </p>
-                </div>
+                  </div>
+                </details>
               ))}
             </div>
           </div>
@@ -258,11 +277,11 @@ export default async function BlogDetailPage({
 
         {/* CTA Section */}
         <div className="mt-16 pt-12 border-t border-gray-200">
-          <div className="bg-[#FF4A00] p-8 lg:p-12 text-center">
+          <div className="bg-[#FF4A00] p-8 lg:p-12 text-left">
             <h3 className="text-2xl lg:text-3xl font-semibold text-white mb-4">
               Ready to automate your workflow?
             </h3>
-            <p className="text-white/90 mb-6 max-w-2xl mx-auto">
+            <p className="text-white/90 mb-6 max-w-2xl">
               Let's discuss how AI automation can transform your business operations.
             </p>
             <Link
@@ -271,11 +290,12 @@ export default async function BlogDetailPage({
             >
               Get in Touch
             </Link>
+       
           </div>
         </div>
 
         {/* Back to Blog */}
-        <div className="mt-12 pt-8 border-t border-gray-200 text-center">
+        <div className="mt-12 pt-8 border-t border-gray-200 ">
           <Link
             href="/blogs"
             className="inline-flex items-center gap-2 text-gray-600 hover:text-[#FF4A00] transition-colors font-mono"

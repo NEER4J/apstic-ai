@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, FileText, ListOrdered, Mail } from "lucide-react";
+import { ArrowRight, FileText, ListOrdered, Mail, Briefcase, Inbox } from "lucide-react";
 
 const actions = [
   {
@@ -19,6 +19,18 @@ const actions = [
     description: "See inbound leads from the contact form.",
     href: "/protected/contacts",
     icon: <Mail className="h-5 w-5" />,
+  },
+  {
+    title: "Careers",
+    description: "Manage open roles and postings.",
+    href: "/protected/careers",
+    icon: <Briefcase className="h-5 w-5" />,
+  },
+  {
+    title: "Career applications",
+    description: "Review submissions from candidates.",
+    href: "/protected/careers/submissions",
+    icon: <Inbox className="h-5 w-5" />,
   },
 ];
 

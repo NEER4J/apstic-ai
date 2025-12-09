@@ -21,6 +21,12 @@ export default function ProtectedLayout({
               <Link href="/protected/blogs" className="hover:text-[#161513] transition-colors">
                 Blogs
               </Link>
+              <Link href="/protected/careers" className="hover:text-[#161513] transition-colors">
+                Careers
+              </Link>
+              <Link href="/protected/careers/submissions" className="hover:text-[#161513] transition-colors">
+                Career Applications
+              </Link>
               <Link href="/protected/contacts" className="hover:text-[#161513] transition-colors">
                 Contacts
               </Link>

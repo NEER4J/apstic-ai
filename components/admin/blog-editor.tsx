@@ -223,9 +223,9 @@ export function BlogEditor({ blogId }: { blogId?: string }) {
     theme: {
       paragraph: "mb-4 leading-7",
       heading: {
-        h1: "text-3xl font-semibold mb-4",
-        h2: "text-2xl font-semibold mt-6 mb-3",
-        h3: "text-xl font-semibold mt-4 mb-2",
+        h1: "text-3xl mb-4",
+        h2: "text-2xl mt-6 mb-3",
+        h3: "text-xl mt-4 mb-2",
       },
       quote: "border-l-4 border-gray-200 pl-4 italic text-gray-600",
       list: {

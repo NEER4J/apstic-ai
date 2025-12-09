@@ -182,7 +182,7 @@ export default async function BlogDetailPage({
           )}
 
           {/* Title */}
-          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-[#161513] leading-[1.1] mb-6">
+          <h1 className="text-3xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-[#161513] leading-[1.1] mb-6">
             {blog.title}
           </h1>
 
@@ -217,7 +217,7 @@ export default async function BlogDetailPage({
             <img
               src={blog.cover_image_url}
               alt={blog.title}
-              className="w-full h-[300px] lg:h-[360px] object-cover"
+              className="w-full h-[200px] lg:h-[360px] object-cover"
             />
           </div>
         </section>

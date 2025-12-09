@@ -4,7 +4,8 @@
       "Bash(npm run dev:*)",
       "WebFetch(domain:vercel.com)",
       "Bash(npm install:*)",
-      "Bash(npm audit:*)"
+      "Bash(npm audit:*)",
+      "Bash(dir:*)"
     ],
     "deny": [],
     "ask": []

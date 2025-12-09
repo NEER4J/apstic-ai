@@ -109,9 +109,11 @@ export default async function BlogDetailPage({
   }
 
   const publishedDate = blog.published_at || blog.created_at;
-  const keywords = blog.meta_keywords
-    ? blog.meta_keywords.split(",").map((k) => k.trim()).filter(Boolean)
-    : blog.tags || [];
+  const tags = blog.tags && blog.tags.length
+    ? blog.tags
+    : blog.meta_keywords
+        ? blog.meta_keywords.split(",").map((k) => k.trim()).filter(Boolean)
+        : [];
   const faq = blog.faq_json || [];
   const jsonLd = {
     "@context": "https://schema.org",
@@ -167,9 +169,9 @@ export default async function BlogDetailPage({
       <section className="border-b border-gray-200">
         <div className="max-w-5xl mx-auto px-6 lg:px-10 py-12 lg:py-16 border-x border-gray-200">
           {/* Tags */}
-          {keywords.length > 0 && (
+          {tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-6">
-              {keywords.map((tag) => (
+              {tags.map((tag) => (
                 <span
                   key={tag}
                   className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono uppercase tracking-[0.15em] border border-gray-300 text-gray-700 bg-gray-50"
@@ -182,7 +184,7 @@ export default async function BlogDetailPage({
           )}
 
           {/* Title */}
-          <h1 className="text-3xl lg:text-5xl xl:text-6xl font-medium tracking-tight text-[#161513] leading-[1.1] mb-6">
+          <h1 className="text-3xl lg:text-4xl xl:text-5xl font-medium tracking-tight text-[#161513] leading-[1.1] mb-6">
             {blog.title}
           </h1>
 

@@ -64,7 +64,7 @@ export default async function CareerDetailPage({ params }: { params: Promise<{ s
           <p className="text-xs uppercase tracking-[0.3em] text-gray-500 font-mono mb-4">
             Open role
           </p>
-          <h1 className="text-4xl lg:text-5xl font-medium tracking-tight text-[#161513] leading-[1.1] mb-4">
+          <h1 className="text-3xl lg:text-5xl font-medium tracking-tight text-[#161513] leading-[1.1] mb-4">
             {career.title}
           </h1>
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 font-mono">

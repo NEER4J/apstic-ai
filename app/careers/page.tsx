@@ -44,7 +44,8 @@ export default async function CareersPage() {
         </header>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 p-5">
+        <div className="pb-5 min-h-[500px]">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 p-5 ">
           {careers.length === 0 ? (
             <div className="col-span-full p-16 text-center text-gray-500 border-t border-gray-200">
               <p className="text-lg mb-2">No open roles right now.</p>
@@ -55,7 +56,7 @@ export default async function CareersPage() {
               <Link
                 key={role.id}
                 href={`/careers/${role.slug}`}
-                className={`group border border-gray-200 p-6 lg:p-8 flex flex-col gap-4 hover:bg-gray-50 transition-all hover:shadow-sm ${
+                className={`bg-[#fffefb] group border border-gray-200 p-6 lg:p-8 flex flex-col gap-4 hover:bg-gray-50 transition-all hover:shadow-sm ${
                   idx === 0 ? "md:border-l" : ""
                 }`}
               >
@@ -81,24 +82,21 @@ export default async function CareersPage() {
                   {role.title}
                 </h2>
 
-                {role.description_html && (
-                  <p
-                    className="text-gray-600 leading-relaxed line-clamp-3"
-                    dangerouslySetInnerHTML={{ __html: role.description_html }}
-                  />
-                )}
+                <div className="flex justify-between border-t border-gray-200 items-center pt-4">
 
-                <div className="mt-auto pt-4 border-t border-gray-200 flex items-center gap-2 text-xs text-gray-500 font-mono">
+                <div className="m-0  flex items-center gap-2 text-xs text-gray-500 font-mono">
                   <Calendar className="h-3.5 w-3.5" />
                   <span>{new Date(role.created_at).toLocaleDateString()}</span>
                 </div>
 
-                <div className="inline-flex items-center gap-2 text-sm font-mono text-[#FF4A00] group-hover:gap-3 transition-all">
+                <div className="inline-flex items-center gap-2 text-sm font-mono text-[#FF4A00] group-hover:gap-3 transition-all bg-[#FF4A00] text-white px-4 py-2">
                   View details →
                 </div>
+                </div>
               </Link>
-            ))
-          )}
+              ))
+            )}
+          </div>
         </div>
 
         {/* CTA Banner */}

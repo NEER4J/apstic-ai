@@ -30,7 +30,7 @@ export function FinalCTASection() {
                             Stop Doing It Manually.
                         </h2>
                         <p className="text-lg lg:text-xl text-white/90 mb-12 mx-auto text-left w-full">
-                            Let AI and automation handle the repetitive work — so you can focus on growth.
+                            Let AI and automation handle the repetitive work. so you can focus on growth.
                         </p>
 
                         <HeroButton className="">

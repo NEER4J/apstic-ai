@@ -8,6 +8,7 @@ import { StepsSection } from "@/components/steps-section";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { BenefitsSection } from "@/components/benefits-section";
 import { CustomSystemsSection } from "@/components/custom-systems-section";
+import { OtherServicesSection } from "@/components/other-services-section";
 import { FinalCTASection } from "@/components/final-cta-section";
 import { BlogsSection } from "@/components/blogs-section";
 import { Metadata } from "next";
@@ -52,9 +53,10 @@ export default function Home() {
           <ImpactSection />
           <WhoWeBuildFor />
           <StepsSection />
-          <TestimonialsSection />
+          {/* <TestimonialsSection /> */}
           <BenefitsSection />
           <CustomSystemsSection />
+          <OtherServicesSection />
           <BlogsSection />
           <FinalCTASection />
         </div>

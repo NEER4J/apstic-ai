@@ -1,5 +1,36 @@
 import { Header } from "@/components/header";
 import Link from "next/link";
+import { Metadata } from "next";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://apstic.com";
+const ogImage = `${siteUrl}/og-image.jpg`;
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | Apstic",
+  description: "Learn how Apstic collects, uses, and protects your personal information. Read our comprehensive privacy policy.",
+  openGraph: {
+    title: "Privacy Policy | Apstic",
+    description: "Learn how Apstic collects, uses, and protects your personal information. Read our comprehensive privacy policy.",
+    url: `${siteUrl}/privacy-policy`,
+    type: "website",
+    images: [
+      {
+        url: ogImage,
+        alt: "Apstic Privacy Policy",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | Apstic",
+    description: "Learn how Apstic collects, uses, and protects your personal information. Read our comprehensive privacy policy.",
+    images: [ogImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function PrivacyPolicyPage() {
     return (

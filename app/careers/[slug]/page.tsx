@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
 import { MapPin, Briefcase, Wallet } from "lucide-react";
 import { ApplyForm } from "@/components/careers/apply-form";
+import { Metadata } from "next";
 
 type Career = {
   id: string;
@@ -30,6 +31,45 @@ async function getCareer(slug: string): Promise<Career | null> {
     .eq("status", "published")
     .single();
   return data as Career | null;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const career = await getCareer(slug);
+
+  if (!career) {
+    return {
+      title: "Career not found | Apstic",
+    };
+  }
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://apstic.com";
+  const ogImage = `${siteUrl}/og-image.jpg`;
+  const url = `${siteUrl}/careers/${career.slug}`;
+
+  const description = `Join Apstic as ${career.title}. ${career.location ? `Location: ${career.location}. ` : ""}${career.type ? `Type: ${career.type}. ` : ""}Apply now to be part of our AI automation team.`;
+
+  return {
+    title: `${career.title} - Careers | Apstic`,
+    description,
+    openGraph: {
+      title: `${career.title} - Careers | Apstic`,
+      description,
+      url,
+      type: "website",
+      images: [{ url: ogImage, alt: `${career.title} at Apstic` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${career.title} - Careers | Apstic`,
+      description,
+      images: [ogImage],
+    },
+  };
 }
 
 export default async function CareerDetailPage({ params }: { params: Promise<{ slug: string }> }) {

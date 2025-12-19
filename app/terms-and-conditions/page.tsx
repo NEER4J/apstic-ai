@@ -1,5 +1,36 @@
 import { Header } from "@/components/header";
 import Link from "next/link";
+import { Metadata } from "next";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://apstic.com";
+const ogImage = `${siteUrl}/og-image.jpg`;
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions | Apstic",
+  description: "Read Apstic's terms and conditions for using our AI automation services. Understand your rights and responsibilities.",
+  openGraph: {
+    title: "Terms & Conditions | Apstic",
+    description: "Read Apstic's terms and conditions for using our AI automation services. Understand your rights and responsibilities.",
+    url: `${siteUrl}/terms-and-conditions`,
+    type: "website",
+    images: [
+      {
+        url: ogImage,
+        alt: "Apstic Terms & Conditions",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms & Conditions | Apstic",
+    description: "Read Apstic's terms and conditions for using our AI automation services. Understand your rights and responsibilities.",
+    images: [ogImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function TermsAndConditionsPage() {
     return (

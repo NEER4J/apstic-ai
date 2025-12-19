@@ -2,6 +2,34 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { formatDate } from "@/lib/utils";
 import { Calendar, User, Tag, ArrowRight } from "lucide-react";
+import { Metadata } from "next";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://apstic.com";
+const ogImage = `${siteUrl}/og-image.jpg`;
+
+export const metadata: Metadata = {
+  title: "Blog & News - Latest Insights | Apstic",
+  description: "Explore our latest insights on automation, AI systems, and the results we deliver for clients worldwide. Stay updated with Apstic's blog.",
+  keywords: ["blog", "AI automation", "automation insights", "AI news", "business automation", "Apstic blog"],
+  openGraph: {
+    title: "Blog & News - Latest Insights | Apstic",
+    description: "Explore our latest insights on automation, AI systems, and the results we deliver for clients worldwide. Stay updated with Apstic's blog.",
+    url: `${siteUrl}/blogs`,
+    type: "website",
+    images: [
+      {
+        url: ogImage,
+        alt: "Apstic Blog - AI Automation Insights",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog & News - Latest Insights | Apstic",
+    description: "Explore our latest insights on automation, AI systems, and the results we deliver for clients worldwide. Stay updated with Apstic's blog.",
+    images: [ogImage],
+  },
+};
 
 export const revalidate = 60;
 

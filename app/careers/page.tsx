@@ -1,6 +1,34 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { Calendar, MapPin, Briefcase } from "lucide-react";
+import { Metadata } from "next";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://apstic.com";
+const ogImage = `${siteUrl}/og-image.jpg`;
+
+export const metadata: Metadata = {
+  title: "Careers - Join Apstic | AI Automation Experts",
+  description: "Help us build automation systems for businesses worldwide. Explore open roles and join the Apstic team working on cutting-edge AI automation solutions.",
+  keywords: ["careers", "jobs", "AI automation jobs", "software engineering", "Apstic careers", "remote jobs"],
+  openGraph: {
+    title: "Careers - Join Apstic | AI Automation Experts",
+    description: "Help us build automation systems for businesses worldwide. Explore open roles and join the Apstic team working on cutting-edge AI automation solutions.",
+    url: `${siteUrl}/careers`,
+    type: "website",
+    images: [
+      {
+        url: ogImage,
+        alt: "Careers at Apstic - AI Automation Experts",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Careers - Join Apstic | AI Automation Experts",
+    description: "Help us build automation systems for businesses worldwide. Explore open roles and join the Apstic team working on cutting-edge AI automation solutions.",
+    images: [ogImage],
+  },
+};
 
 type CareerListItem = {
   id: string;

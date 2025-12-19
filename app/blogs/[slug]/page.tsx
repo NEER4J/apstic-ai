@@ -74,7 +74,7 @@ export async function generateMetadata({
     : blog.tags && blog.tags.length ? blog.tags : undefined;
 
   const image = blog.meta_image_url || blog.cover_image_url;
-  const url = `${process.env.NEXT_PUBLIC_SITE_URL || "https://apstic.com"}/blog/${blog.slug}`;
+  const url = `${process.env.NEXT_PUBLIC_SITE_URL || "https://apstic.com"}/blogs/${blog.slug}`;
 
   return {
     title: blog.meta_title || blog.title,
@@ -134,7 +134,7 @@ export default async function BlogDetailPage({
         },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${process.env.NEXT_PUBLIC_SITE_URL || "https://apstic.com"}/blog/${blog.slug}`,
+      "@id": `${process.env.NEXT_PUBLIC_SITE_URL || "https://apstic.com"}/blogs/${blog.slug}`,
     },
     ...(faq.length
       ? {

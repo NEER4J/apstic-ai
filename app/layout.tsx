@@ -3,9 +3,9 @@ import { Geist, DM_Mono, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
 
-const defaultUrl = process.env.VERCEL_URL
+const defaultUrl = process.env.NEXT_PUBLIC_SITE_URL || (process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
-  : "http://localhost:3000";
+  : "https://apstic.com");
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),

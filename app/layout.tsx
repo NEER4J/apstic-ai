@@ -50,10 +50,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
+                if (document.querySelector('script[src*="jibberlab"][data-agent-id="6354b7ad-fe28-41a5-8b1b-e82dd56b08cb"]')) {
+                  return; // Already loaded
+                }
                 var script = document.createElement('script');
                 script.src = 'https://cdn.jibberlab.com/widget.js';
                 script.setAttribute('data-agent-id', '6354b7ad-fe28-41a5-8b1b-e82dd56b08cb');
                 script.setAttribute('data-api-key', 'wk_Wp9TbS73DGfotIKCDvYQS5KfWtmauOvSEEtqRQn4Q4I');
+                script.setAttribute('data-api-url', 'http://jibberlab.com');
                 script.setAttribute('data-primary-color', '#FF8C42');
                 script.setAttribute('data-position', 'bottom-right');
                 script.async = true;

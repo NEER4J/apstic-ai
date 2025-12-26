@@ -46,6 +46,22 @@ export default function RootLayout({
         <Header />
         {children}
         <Analytics />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var script = document.createElement('script');
+                script.src = 'https://cdn.jibberlab.com/widget.js';
+                script.setAttribute('data-agent-id', '6354b7ad-fe28-41a5-8b1b-e82dd56b08cb');
+                script.setAttribute('data-api-key', 'wk_Wp9TbS73DGfotIKCDvYQS5KfWtmauOvSEEtqRQn4Q4I');
+                script.setAttribute('data-primary-color', '#FF8C42');
+                script.setAttribute('data-position', 'bottom-right');
+                script.async = true;
+                document.body.appendChild(script);
+              })();
+            `,
+          }}
+        />
         <footer className="w-full border-gray-300 bg-[#fffefb] border-t">
           <div className="max-w-[1440px] mx-auto border-x border-gray-300">
             {/* Footer Content */}

@@ -67,7 +67,7 @@ export function BenefitsSection() {
                             </h3>
 
                             <HeroButton variant="white-dark" className="w-full max-w-xs">
-                                BOOK YOUR FREE CALL
+                                SCHEDULE A FREE CONSULT
                             </HeroButton>
                         </div>
                     </div>

@@ -34,7 +34,7 @@ export function FinalCTASection() {
                         </p>
 
                         <HeroButton className="">
-                            BOOK YOUR FREE AUTOMATION AUDIT
+                            BOOK A 30-MIN STRATEGY CALL
                         </HeroButton>
                     </div>
                 </div>

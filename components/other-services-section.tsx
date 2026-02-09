@@ -98,7 +98,7 @@ export function OtherServicesSection() {
                             </div>
 
                             <HeroButton variant="white-dark" className="w-full max-w-xs">
-                                GET STARTED TODAY
+                                START THE CONVERSATION
                             </HeroButton>
                         </div>
                     </div>

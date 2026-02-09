@@ -23,7 +23,7 @@ export function BookCallButton({ className, ...props }: BookCallButtonProps) {
           "dark:bg-white dark:text-[#161513] dark:group-hover:bg-gray-200 w-full justify-center" // Dark mode
         )}
       >
-        Book A Call
+        Chat with Founder
       </span>
       <div
         className={cn(

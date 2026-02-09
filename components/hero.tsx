@@ -136,7 +136,7 @@ export function Hero() {
 
           <div className="mb-12">
             <HeroButton>
-              Get Your Free Audit
+              Let's Talk — I'm the Founder
             </HeroButton>
           </div>
 

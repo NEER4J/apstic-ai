@@ -85,11 +85,11 @@ export function WhoWeBuildFor() {
 
                         <div className="relative z-10 flex flex-col items-start w-full h-full justify-between">
                             <h3 className="text-3xl lg:text-4xl font-medium text-white mb-8 leading-tight">
-                                Book A Call To See How We Can Help You
+                                Talk to the Founder — See How We Can Help You
                             </h3>
 
                             <HeroButton variant="light" className="w-full max-w-xs">
-                                Book Your Free Call
+                                Book a Free Call
                             </HeroButton>
                         </div>
                     </div>

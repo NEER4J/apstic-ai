@@ -66,7 +66,7 @@ export function BenefitsSection() {
                                 Ready To See Your Workflow Automated?
                             </h3>
 
-                            <HeroButton variant="white-dark" className="w-full max-w-xs">
+                            <HeroButton variant="white-dark" className="w-full max-w-s">
                                 SCHEDULE A FREE CONSULT
                             </HeroButton>
                         </div>

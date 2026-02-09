@@ -3,6 +3,7 @@ import { MarqueeSection } from "@/components/marquee-section";
 import { IntegrationsSection } from "@/components/integrations-section";
 import { ImpactSection } from "@/components/impact-section";
 import { BeforeAfter } from "@/components/before-after";
+import { OpenClawSection } from "@/components/openclaw-section";
 import { WhoWeBuildFor } from "@/components/who-we-build-for";
 import { StepsSection } from "@/components/steps-section";
 import { TestimonialsSection } from "@/components/testimonials-section";
@@ -49,6 +50,7 @@ export default function Home() {
           <Hero />
           <MarqueeSection />
           <IntegrationsSection />
+          <OpenClawSection />
           <BeforeAfter />
           <ImpactSection />
           <WhoWeBuildFor />

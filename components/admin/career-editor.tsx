@@ -77,7 +77,7 @@ export function CareerEditor({ careerId }: { careerId?: string }) {
 
     const { data, error } = await supabase
       .from("careers")
-      .upsert(payload as any)
+      .upsert(payload)
       .select()
       .single();
 
@@ -228,4 +228,3 @@ export function CareerEditor({ careerId }: { careerId?: string }) {
     </div>
   );
 }
-

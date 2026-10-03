@@ -65,7 +65,7 @@ export async function generateMetadata({
 
   if (!blog) {
     return {
-      title: "Article not found | Apstic",
+      title: "Article not found",
     };
   }
 
@@ -151,13 +151,13 @@ export default async function BlogDetailPage({
   };
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#f8f6f1]">
       {/* Breadcrumb and Back Navigation */}
       <div className="border-b border-gray-200">
         <div className="max-w-5xl mx-auto px-6 lg:px-10 py-4">
           <Link
             href="/blogs"
-            className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-[#FF4A00] transition-colors font-mono"
+          className="inline-flex items-center gap-2 text-sm text-[#625f58] transition-colors hover:text-[#c84613]"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to all insights
@@ -260,7 +260,7 @@ export default async function BlogDetailPage({
               {faq.map((item, idx) => (
                 <details
                   key={idx}
-                  className="group border border-gray-200 bg-[fffefb]"
+              className="group rounded-xl border border-gray-200 bg-white"
                 >
                   <summary className="flex items-center justify-between gap-4 cursor-pointer px-6 lg:px-8 py-5 list-none">
                     <span className="text-lg font-semibold text-[#161513]">
@@ -279,18 +279,18 @@ export default async function BlogDetailPage({
 
         {/* CTA Section */}
         <div className="mt-16 pt-12 border-t border-gray-200">
-          <div className="bg-[#FF4A00] p-8 lg:p-12 text-left">
+          <div className="rounded-3xl bg-[#1c1b19] p-8 text-left text-white lg:p-12">
             <h3 className="text-2xl lg:text-3xl font-semibold text-white mb-4">
-              Ready to automate your workflow?
+              Have a workflow in mind?
             </h3>
-            <p className="text-white/90 mb-6 max-w-2xl">
-              Let's discuss how AI automation can transform your business operations.
+              <p className="mb-6 max-w-2xl text-white/65">
+              Tell us what the process looks like today and where you would like it to work better.
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-white text-[#FF4A00] px-8 py-3 font-semibold hover:bg-gray-100 transition-colors"
+              className="inline-flex rounded-full bg-[#ff4a00] px-6 py-3 font-semibold text-white transition hover:bg-[#d83d00]"
             >
-              Get in Touch
+              Talk it through
             </Link>
        
           </div>
@@ -316,4 +316,3 @@ export default async function BlogDetailPage({
     </main>
   );
 }
-

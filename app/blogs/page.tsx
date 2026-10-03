@@ -8,25 +8,25 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://apstic.com";
 const ogImage = `${siteUrl}/og-image.jpg`;
 
 export const metadata: Metadata = {
-  title: "Blog & News - Latest Insights | Apstic",
-  description: "Explore our latest insights on automation, AI systems, and the results we deliver for clients worldwide. Stay updated with Apstic's blog.",
-  keywords: ["blog", "AI automation", "automation insights", "AI news", "business automation", "Apstic blog"],
+  title: "Insights",
+  description: "Practical notes from Apstic on AI-enabled workflows, integrations, and the systems that keep operations moving.",
+  keywords: ["AI workflows", "workflow automation", "business integrations", "operations", "Apstic insights"],
   openGraph: {
-    title: "Blog & News - Latest Insights | Apstic",
-    description: "Explore our latest insights on automation, AI systems, and the results we deliver for clients worldwide. Stay updated with Apstic's blog.",
+    title: "Insights | Apstic",
+    description: "Practical notes from Apstic on AI-enabled workflows, integrations, and the systems that keep operations moving.",
     url: `${siteUrl}/blogs`,
     type: "website",
     images: [
       {
         url: ogImage,
-        alt: "Apstic Blog - AI Automation Insights",
+        alt: "Apstic insights on AI workflows and connected operations",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog & News - Latest Insights | Apstic",
-    description: "Explore our latest insights on automation, AI systems, and the results we deliver for clients worldwide. Stay updated with Apstic's blog.",
+    title: "Insights | Apstic",
+    description: "Practical notes from Apstic on AI-enabled workflows, integrations, and the systems that keep operations moving.",
     images: [ogImage],
   },
 };
@@ -62,43 +62,43 @@ export default async function BlogIndexPage() {
   const blogs = await fetchBlogs();
 
   return (
-    <main className="min-h-screen bg-white">
-      <div className="w-full max-w-[1440px] mx-auto border-x border-gray-200">
+    <main className="min-h-screen bg-[#f8f6f1]">
+      <div className="mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12">
         {/* Header */}
-        <header className="border-b border-gray-200 px-6 lg:px-12 pt-16 pb-12">
-          <p className="text-xs uppercase tracking-[0.3em] text-gray-500 font-mono mb-4">
-            Insights & Articles
+        <header className="border-b border-[#dedbd3] py-14 sm:py-16">
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.16em] text-[#c84613]">
+            Notes from Apstic
           </p>
-          <h1 className="text-4xl lg:text-5xl font-medium tracking-tight text-[#161513] mb-4">
-            Blog & News
+          <h1 className="mb-4 text-5xl font-semibold tracking-[-0.05em] text-[#191816] sm:text-6xl">
+            Ideas for work that moves
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl leading-relaxed">
-            Explore our latest insights on automation, AI systems, and the results we deliver for clients worldwide.
+          <p className="max-w-2xl text-lg leading-8 text-[#625f58]">
+            Practical thinking on AI-enabled workflows, integrations, and the everyday systems behind good operations.
           </p>
         </header>
 
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {blogs.length === 0 && (
-            <div className="col-span-full p-16 text-center text-gray-500 border-t border-gray-200">
-              <p className="text-lg mb-2">No articles published yet.</p>
-              <p className="text-sm">Check back soon for our latest insights.</p>
+            <div className="col-span-full border-b border-[#dedbd3] py-20 text-center text-[#77736a]">
+              <p className="text-lg mb-2">Nothing published here yet.</p>
+              <p className="text-sm">In the meantime, tell us about a workflow you would like to improve.</p>
             </div>
           )}
           {blogs.map((blog) => (
             <Link
               key={blog.id}
               href={`/blogs/${blog.slug}`}
-              className="group border-t border-r border-gray-200 p-6 lg:p-8 flex flex-col gap-4 hover:bg-gray-50 transition-all hover:shadow-sm"
+              className="group flex flex-col gap-4 border-b border-[#dedbd3] p-6 transition hover:bg-white/70 sm:p-8"
             >
               {/* Cover Image */}
               {blog.cover_image_url && (
-                <div className="aspect-[16/9] overflow-hidden border border-gray-200 mb-2">
+                <div className="mb-2 aspect-[16/9] overflow-hidden rounded-xl border border-[#dedbd3] bg-white">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={blog.cover_image_url}
                     alt={blog.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
               )}
@@ -159,18 +159,18 @@ export default async function BlogIndexPage() {
 
         {/* CTA Banner */}
         {blogs.length > 0 && (
-          <div className="border-t border-gray-200 bg-[#FF4A00] p-12 lg:p-16 text-center">
-            <h2 className="text-3xl font-semibold text-white mb-4">
-              Ready to transform your business?
+            <div className="my-12 rounded-3xl bg-[#1c1b19] p-8 text-center text-white sm:my-16 sm:p-12">
+            <h2 className="mb-4 text-3xl font-semibold">
+              Have a workflow in mind?
             </h2>
-            <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-              Discover how AI automation can streamline your operations and boost productivity.
+            <p className="mx-auto mb-6 max-w-2xl text-white/65">
+              Start with the process, the people involved, and the tools it touches.
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-white text-[#FF4A00] px-8 py-3 font-semibold hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center rounded-full bg-[#ff4a00] px-6 py-3 font-semibold text-white transition hover:bg-[#d83d00]"
             >
-              Get Started
+              Talk it through
             </Link>
           </div>
         )}
@@ -178,4 +178,3 @@ export default async function BlogIndexPage() {
     </main>
   );
 }
-

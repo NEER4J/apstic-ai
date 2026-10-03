@@ -43,7 +43,7 @@ export async function generateMetadata({
 
   if (!career) {
     return {
-      title: "Career not found | Apstic",
+      title: "Role not found",
     };
   }
 
@@ -51,10 +51,10 @@ export async function generateMetadata({
   const ogImage = `${siteUrl}/og-image.jpg`;
   const url = `${siteUrl}/careers/${career.slug}`;
 
-  const description = `Join Apstic as ${career.title}. ${career.location ? `Location: ${career.location}. ` : ""}${career.type ? `Type: ${career.type}. ` : ""}Apply now to be part of our AI automation team.`;
+  const description = `Join Apstic as ${career.title}. ${career.location ? `Location: ${career.location}. ` : ""}${career.type ? `Type: ${career.type}. ` : ""}Work with our team on AI-enabled workflows, integrations, and software.`;
 
   return {
-    title: `${career.title} - Careers | Apstic`,
+    title: `${career.title} - Careers`,
     description,
     openGraph: {
       title: `${career.title} - Careers | Apstic`,
@@ -174,4 +174,3 @@ export default async function CareerDetailPage({ params }: { params: Promise<{ s
     </main>
   );
 }
-

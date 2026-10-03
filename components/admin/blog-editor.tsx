@@ -150,7 +150,7 @@ export function BlogEditor({ blogId }: { blogId?: string }) {
 
     const { data, error } = await supabase
       .from("blogs")
-      .upsert(payload as any)
+      .upsert(payload)
       .select()
       .single();
 
@@ -175,22 +175,6 @@ export function BlogEditor({ blogId }: { blogId?: string }) {
     setSaving(false);
     router.push("/protected/blogs");
   };
-
-  const toolbarButton = (
-    label: string,
-    onClick: () => void,
-    active?: boolean,
-  ) => (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`px-3 py-2 text-sm border border-gray-200 hover:border-gray-400 transition-colors ${
-        active ? "bg-gray-100 text-[#161513]" : "text-gray-700"
-      }`}
-    >
-      {label}
-    </button>
-  );
 
   const onChange = (editorState: EditorState, editor: LexicalEditor) => {
     // Get HTML from the editor state
@@ -239,6 +223,8 @@ export function BlogEditor({ blogId }: { blogId?: string }) {
         underline: "underline",
       },
     },
+  // The editor remounts when editorKey changes after a saved document is loaded.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }), [editorKey]);
 
   function Toolbar() {
@@ -606,4 +592,3 @@ export function BlogEditor({ blogId }: { blogId?: string }) {
     </div>
   );
 }
-

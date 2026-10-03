@@ -73,7 +73,7 @@ export function ApplyForm({ careerId, applyEmail }: Props) {
         setMessage("Application submitted. We'll be in touch!");
         reset();
       }
-    } catch (err) {
+    } catch {
       setError("Unexpected error. Please try again.");
     }
     setSubmitting(false);
@@ -182,4 +182,3 @@ export function ApplyForm({ careerId, applyEmail }: Props) {
     </div>
   );
 }
-

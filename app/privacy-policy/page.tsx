@@ -1,4 +1,3 @@
-import { Header } from "@/components/header";
 import Link from "next/link";
 import { Metadata } from "next";
 
@@ -6,11 +5,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://apstic.com";
 const ogImage = `${siteUrl}/og-image.jpg`;
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Apstic",
-  description: "Learn how Apstic collects, uses, and protects your personal information. Read our comprehensive privacy policy.",
+  title: "Privacy Policy",
+  description: "Read how Apstic collects, uses, and protects personal information when you visit our website or contact us.",
   openGraph: {
     title: "Privacy Policy | Apstic",
-    description: "Learn how Apstic collects, uses, and protects your personal information. Read our comprehensive privacy policy.",
+    description: "Read how Apstic collects, uses, and protects personal information when you visit our website or contact us.",
     url: `${siteUrl}/privacy-policy`,
     type: "website",
     images: [
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Privacy Policy | Apstic",
-    description: "Learn how Apstic collects, uses, and protects your personal information. Read our comprehensive privacy policy.",
+    description: "Read how Apstic collects, uses, and protects personal information when you visit our website or contact us.",
     images: [ogImage],
   },
   robots: {
@@ -54,7 +53,7 @@ export default function PrivacyPolicyPage() {
                             <section className="mb-12">
                                 <h2 className="text-3xl font-medium text-[#161513] mb-4">1. Introduction</h2>
                                 <p className="text-gray-700 leading-relaxed mb-4">
-                                    Welcome to Apstic ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
+                                    Welcome to Apstic (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
                                 </p>
                                 <p className="text-gray-700 leading-relaxed">
                                     Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site or use our services.
@@ -173,7 +172,7 @@ export default function PrivacyPolicyPage() {
                             </section>
 
                             <section className="mb-12">
-                                <h2 className="text-3xl font-medium text-[#161513] mb-4">9. Children's Privacy</h2>
+                                <h2 className="text-3xl font-medium text-[#161513] mb-4">9. Children&apos;s Privacy</h2>
                                 <p className="text-gray-700 leading-relaxed">
                                     Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children under 18. If you become aware that a child has provided us with personal information, please contact us immediately.
                                 </p>
@@ -182,7 +181,7 @@ export default function PrivacyPolicyPage() {
                             <section className="mb-12">
                                 <h2 className="text-3xl font-medium text-[#161513] mb-4">10. Changes to This Policy</h2>
                                 <p className="text-gray-700 leading-relaxed">
-                                    We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date. You are advised to review this Privacy Policy periodically for any changes.
+                                    We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Last updated&quot; date. You are advised to review this Privacy Policy periodically for any changes.
                                 </p>
                             </section>
 

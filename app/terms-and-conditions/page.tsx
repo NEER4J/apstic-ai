@@ -1,4 +1,3 @@
-import { Header } from "@/components/header";
 import Link from "next/link";
 import { Metadata } from "next";
 
@@ -6,11 +5,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://apstic.com";
 const ogImage = `${siteUrl}/og-image.jpg`;
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Apstic",
-  description: "Read Apstic's terms and conditions for using our AI automation services. Understand your rights and responsibilities.",
+  title: "Terms and Conditions",
+  description: "Terms for using the Apstic website and engaging Apstic for workflow automation and software services.",
   openGraph: {
-    title: "Terms & Conditions | Apstic",
-    description: "Read Apstic's terms and conditions for using our AI automation services. Understand your rights and responsibilities.",
+    title: "Terms and Conditions | Apstic",
+    description: "Terms for using the Apstic website and engaging Apstic for workflow automation and software services.",
     url: `${siteUrl}/terms-and-conditions`,
     type: "website",
     images: [
@@ -22,8 +21,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Terms & Conditions | Apstic",
-    description: "Read Apstic's terms and conditions for using our AI automation services. Understand your rights and responsibilities.",
+    title: "Terms and Conditions | Apstic",
+    description: "Terms for using the Apstic website and engaging Apstic for workflow automation and software services.",
     images: [ogImage],
   },
   robots: {
@@ -54,7 +53,7 @@ export default function TermsAndConditionsPage() {
                             <section className="mb-12">
                                 <h2 className="text-3xl font-medium text-[#161513] mb-4">1. Acceptance of Terms</h2>
                                 <p className="text-gray-700 leading-relaxed mb-4">
-                                    Welcome to Apstic. By accessing or using our website and services, you agree to be bound by these Terms and Conditions ("Terms"). If you do not agree to these Terms, please do not use our services.
+                                    Welcome to Apstic. By accessing or using our website and services, you agree to be bound by these Terms and Conditions (&quot;Terms&quot;). If you do not agree to these Terms, please do not use our services.
                                 </p>
                                 <p className="text-gray-700 leading-relaxed">
                                     We reserve the right to modify these Terms at any time. We will notify you of any changes by posting the new Terms on this page. Your continued use of our services after such changes constitutes your acceptance of the new Terms.
@@ -151,7 +150,7 @@ export default function TermsAndConditionsPage() {
 
                                 <h3 className="text-2xl font-medium text-[#161513] mb-3 mt-6">7.2 Disclaimer</h3>
                                 <p className="text-gray-700 leading-relaxed mb-4">
-                                    EXCEPT AS EXPRESSLY PROVIDED IN THESE TERMS, OUR SERVICES ARE PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE DO NOT WARRANT THAT OUR SERVICES WILL BE UNINTERRUPTED, ERROR-FREE, OR COMPLETELY SECURE.
+                                    EXCEPT AS EXPRESSLY PROVIDED IN THESE TERMS, OUR SERVICES ARE PROVIDED &quot;AS IS&quot; WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE DO NOT WARRANT THAT OUR SERVICES WILL BE UNINTERRUPTED, ERROR-FREE, OR COMPLETELY SECURE.
                                 </p>
                             </section>
 

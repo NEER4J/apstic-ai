@@ -68,7 +68,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light">
-      <body className={`${geistSans.className} ${dmMono.variable} ${instrumentSans.variable} min-h-screen bg-[#f8f6f1] antialiased`}>
+      <body className={`${geistSans.className} ${dmMono.variable} ${instrumentSans.variable} antialiased sm:px-0 px-2`}>
         <Header />
         {children}
         <Footer />
